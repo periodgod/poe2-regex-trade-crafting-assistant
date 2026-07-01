@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": "2026-06-18",
+  "probabilityPolicy": {
+    "allowEstimatedWeights": false,
+    "missingWeightBehavior": "exclude-and-report",
+    "reason": "PoE2DB 明确提示部分权重无法从游戏文件直接取得；项目不能用估算权重冒充精确概率。"
+  },
+  "sources": [
+    {
+      "id": "craft-simulator-normalized",
+      "name": "craft_simulator PoE2 normalized pools",
+      "type": "normalized",
+      "commit": "eab8e39c7d96202b406b5da04d94003dfc437d3f",
+      "url": "https://github.com/solven-eu/craft_simulator",
+      "files": [
+        "mods.json",
+        "mod_ids.json",
+        "mod_ranges.json",
+        "mod_tags.json",
+        "extra_mods.json",
+        "essences.csv",
+        "omens.csv",
+        "item_descriptions.csv",
+        "rates.csv"
+      ],
+      "knownFacts": {
+        "modIdFamilies": 376,
+        "modsJsonLineCount": 71258
+      },
+      "use": "底材对应的前后缀、T级、物品等级、可见权重和显示范围"
+    },
+    {
+      "id": "repoe-raw",
+      "name": "RePoE dat-export PoE2 raw tables",
+      "type": "raw-game-export",
+      "commit": "db12f4fa29866bc80bf372e85789486602442ca1",
+      "url": "https://github.com/repoe-fork/dat-export",
+      "files": [
+        "Mods.csv"
+      ],
+      "knownFacts": {
+        "modsCsvLineCount": 16789
+      },
+      "use": "保留原始 ModType、Stat、GenerationType、Family、SpawnWeight tag 等字段用于交叉核验"
+    },
+    {
+      "id": "poe2db",
+      "name": "PoE2DB",
+      "type": "reference-site",
+      "url": "https://poe2db.tw",
+      "files": [],
+      "use": "名称、物品描述、类别索引、精华/催化剂/通货作用和人工核验"
+    }
+  ],
+  "bundledStatus": {
+    "coreCurrencyCatalog": 37,
+    "equipmentClassIndex": 33,
+    "coreModifierFamilyIndex": 50,
+    "fullModifierSnapshotBundled": false,
+    "fullSnapshotPath": "data-snapshot",
+    "updateCommand": "UPDATE_FULL_POE2_DATA.cmd"
+  }
+}

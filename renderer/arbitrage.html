@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' app:; script-src 'self' app:; style-src 'self' app: 'unsafe-inline'; img-src 'self' app: data:; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+<title>五资源金币效率自动估值兑换助手</title>
+<link rel="stylesheet" href="./arbitrage.css">
+<link rel="stylesheet" href="app://local/light-theme.css">
+</head>
+<body class="arbitrage-page">
+<div class="page">
+  <h1>五资源金币效率自动估值兑换助手</h1>
+  <div class="subtitle">
+    每个兑换方向使用两个数量填写，不需要手动计算小数。
+    <b>左边填写目标物品数量，右边填写我们付出的物品数量</b>，
+    网页自动计算兑换比例；再填写当前持仓，系统直接告诉你下一步应该兑换什么。
+  </div>
+
+  <div id="runtimeStatus" class="runtime-status" data-state="loading" role="status" aria-live="polite">
+    <span class="runtime-dot" aria-hidden="true"></span>
+    <div class="runtime-status-content">
+      <strong id="runtimeStatusTitle">兑换计算模块正在加载</strong>
+      <div id="runtimeStatusDetail" class="runtime-status-detail">页面结构已经显示，计算脚本和按钮控制器仍在初始化。</div>
+      <div id="runtimeDiagnosticPanel" class="runtime-diagnostic-panel" hidden>
+        <div class="runtime-diagnostic-label">诊断信息</div>
+        <pre id="runtimeDiagnosticText" class="runtime-diagnostic-text"></pre>
+        <div class="runtime-diagnostic-actions">
+          <button type="button" class="secondary" data-diagnostic-action="retry">重新初始化</button>
+          <button type="button" class="secondary" data-diagnostic-action="copy">复制诊断信息</button>
+          <button type="button" class="ghost" data-diagnostic-action="open-log">打开日志文件</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="actionStatus" class="action-status" data-state="working" role="status" aria-live="polite" hidden>
+    <div>
+      <strong id="actionStatusTitle">正在处理</strong>
+      <div id="actionStatusDetail" class="action-status-detail"></div>
+    </div>
+  </div>
+  <div id="pageErrorBanner" class="notice page-error" hidden></div>
+
+  <section class="card">
+    <h2>① 填写兑换比例</h2>
+    <div class="hint">
+      例如在 <code>e → c</code> 中，左边填写得到的 <b>c</b> 数量，
+      右边填写付出的 <b>e</b> 数量。若填写左边24、右边500，
+      系统自动计算为 <code>24 ÷ 500 = 0.048</code>，
+      即卖出1个e可立即得到0.048个c。
+    </div>
+
+    <div class="formula">
+      <b>秒出比例：</b>目标数量 ÷ 我们付出的数量。<br>
+      <b>慢挂比例：</b>1 ÷ 反向秒出比例。<br>
+      <b>慢挂溢价：</b>(慢挂比例 ÷ 秒出比例 − 1) × 100%。
+    </div>
+
+    <div id="edgeGrid" class="edge-grid section-gap">
+      <div class="edge-card">
+        <div class="edge-title">e ⇄ c</div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>e → c</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 c 的数量</label>
+              <input id="e_to_c_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 e 的数量</label>
+              <input id="e_to_c_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="e_to_c_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>c → e</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 e 的数量</label>
+              <input id="c_to_e_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 c 的数量</label>
+              <input id="c_to_e_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="c_to_e_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+      </div>
+      <div class="edge-card">
+        <div class="edge-title">e ⇄ d</div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>e → d</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 d 的数量</label>
+              <input id="e_to_d_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 e 的数量</label>
+              <input id="e_to_d_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="e_to_d_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>d → e</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 e 的数量</label>
+              <input id="d_to_e_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 d 的数量</label>
+              <input id="d_to_e_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="d_to_e_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+      </div>
+      <div class="edge-card">
+        <div class="edge-title">c ⇄ d</div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>c → d</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 d 的数量</label>
+              <input id="c_to_d_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 c 的数量</label>
+              <input id="c_to_d_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="c_to_d_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>d → c</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 c 的数量</label>
+              <input id="d_to_c_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 d 的数量</label>
+              <input id="d_to_c_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="d_to_c_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+      </div>
+      <div class="edge-card">
+        <div class="edge-title">e ⇄ E</div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>e → E</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 E 的数量</label>
+              <input id="e_to_E_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 e 的数量</label>
+              <input id="e_to_E_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="e_to_E_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>E → e</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 e 的数量</label>
+              <input id="E_to_e_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 E 的数量</label>
+              <input id="E_to_e_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="E_to_e_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+      </div>
+      <div class="edge-card">
+        <div class="edge-title">c ⇄ E</div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>c → E</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 E 的数量</label>
+              <input id="c_to_E_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 c 的数量</label>
+              <input id="c_to_E_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="c_to_E_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>E → c</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 c 的数量</label>
+              <input id="E_to_c_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 E 的数量</label>
+              <input id="E_to_c_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="E_to_c_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+      </div>
+      <div class="edge-card">
+        <div class="edge-title">d ⇄ E</div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>d → E</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 E 的数量</label>
+              <input id="d_to_E_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 d 的数量</label>
+              <input id="d_to_E_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="d_to_E_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>E → d</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 d 的数量</label>
+              <input id="E_to_d_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 E 的数量</label>
+              <input id="E_to_d_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="E_to_d_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+      </div>
+      <div class="edge-card">
+        <div class="edge-title">e ⇄ C</div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>e → C</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 C 的数量</label>
+              <input id="e_to_C_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 e 的数量</label>
+              <input id="e_to_C_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="e_to_C_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>C → e</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 e 的数量</label>
+              <input id="C_to_e_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 C 的数量</label>
+              <input id="C_to_e_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="C_to_e_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+      </div>
+      <div class="edge-card">
+        <div class="edge-title">c ⇄ C</div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>c → C</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 C 的数量</label>
+              <input id="c_to_C_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 c 的数量</label>
+              <input id="c_to_C_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="c_to_C_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>C → c</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 c 的数量</label>
+              <input id="C_to_c_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 C 的数量</label>
+              <input id="C_to_c_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="C_to_c_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+      </div>
+      <div class="edge-card">
+        <div class="edge-title">d ⇄ C</div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>d → C</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 C 的数量</label>
+              <input id="d_to_C_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 d 的数量</label>
+              <input id="d_to_C_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="d_to_C_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>C → d</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 d 的数量</label>
+              <input id="C_to_d_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 C 的数量</label>
+              <input id="C_to_d_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="C_to_d_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+      </div>
+      <div class="edge-card">
+        <div class="edge-title">E ⇄ C</div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>E → C</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 C 的数量</label>
+              <input id="E_to_C_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 E 的数量</label>
+              <input id="E_to_C_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="E_to_C_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+        <div class="direction-block">
+          <div class="direction-title">
+            <span>C → E</span>
+            <span class="direction-note">左 ÷ 右 = 秒出比例</span>
+          </div>
+          <div class="ratio-grid">
+            <div>
+              <label>左：目标物品 E 的数量</label>
+              <input id="C_to_E_target" type="number" min="0" step="any" value="0">
+            </div>
+            <div class="divider">÷</div>
+            <div>
+              <label>右：我们的物品 C 的数量</label>
+              <input id="C_to_E_source" type="number" min="0" step="any" value="0">
+            </div>
+          </div>
+          <div id="C_to_E_calc" class="calc-result invalid">
+            请填写目标数量和付出数量
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <details>
+      <summary>使用 JSON 批量导入数量</summary>
+      <div class="hint" style="margin:10px 0 7px">
+        每个方向包含 <code>target</code>（左边目标数量）和
+        <code>source</code>（右边付出数量）。
+      </div>
+      <textarea id="jsonInput">{
+  "e_to_c": {"target": 0, "source": 0},
+  "c_to_e": {"target": 0, "source": 0},
+  "e_to_d": {"target": 0, "source": 0},
+  "d_to_e": {"target": 0, "source": 0},
+  "c_to_d": {"target": 0, "source": 0},
+  "d_to_c": {"target": 0, "source": 0},
+  "e_to_E": {"target": 0, "source": 0},
+  "E_to_e": {"target": 0, "source": 0},
+  "c_to_E": {"target": 0, "source": 0},
+  "E_to_c": {"target": 0, "source": 0},
+  "d_to_E": {"target": 0, "source": 0},
+  "E_to_d": {"target": 0, "source": 0},
+  "e_to_C": {"target": 0, "source": 0},
+  "C_to_e": {"target": 0, "source": 0},
+  "c_to_C": {"target": 0, "source": 0},
+  "C_to_c": {"target": 0, "source": 0},
+  "d_to_C": {"target": 0, "source": 0},
+  "C_to_d": {"target": 0, "source": 0},
+  "E_to_C": {"target": 0, "source": 0},
+  "C_to_E": {"target": 0, "source": 0}
+}</textarea>
+      <div class="toolbar" style="margin-top:9px">
+        <button class="ghost" data-action="import-json">导入 JSON</button>
+      </div>
+    </details>
+
+    <div class="toolbar">
+      <div class="field">
+        <label>初始本金 d</label>
+        <input id="capital" type="number" min="0" step="any" value="10000">
+      </div>
+      <div class="field">
+        <label>排行榜依据</label>
+        <select id="rankMode">
+          <option value="fast">全程秒出（立即成交）</option>
+          <option value="slow">全程慢挂（等待成交）</option>
+          <option value="mixed">逐步选择收益更高的一侧</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>显示最优路线数量</label>
+        <input id="topN" type="number" min="1" max="64" step="1" value="10">
+      </div>
+      <button class="primary" data-action="calculate">计算套利路线</button>
+      <button class="secondary" data-action="clear-all">清空全部数量</button>
+    </div>
+
+    <div class="notice">
+      左右两个数量必须都大于0，该方向才会启用。填0只关闭当前方向，不影响反向兑换。
+      慢挂价只是根据反向盘口推算的理论价格，不代表能够立即成交。
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>② 填写当前持仓，直接告诉我下一步</h2>
+    <div class="hint">
+      填写你现在实际拥有的五种资源数量。系统会根据上方选择的
+      <b>全程秒出 / 全程慢挂 / 逐步择优</b> 模式，以最终获得更多
+      <b>d（神圣石）</b>为目标，直接给出下一步兑换动作和后续完整步骤。
+    </div>
+
+    <div class="holdings-grid section-gap">
+      <div class="holding-box">
+        <div class="holding-symbol">c</div>
+        <label>目前拥有的 c</label>
+        <input id="holding_c" type="number" min="0" step="any" value="0">
+      </div>
+      <div class="holding-box">
+        <div class="holding-symbol">d</div>
+        <label>目前拥有的 d</label>
+        <input id="holding_d" type="number" min="0" step="any" value="0">
+      </div>
+      <div class="holding-box">
+        <div class="holding-symbol">e</div>
+        <label>目前拥有的 e</label>
+        <input id="holding_e" type="number" min="0" step="any" value="0">
+      </div>
+      <div class="holding-box">
+        <div class="holding-symbol">E</div>
+        <label>目前拥有的 E</label>
+        <input id="holding_E" type="number" min="0" step="any" value="0">
+      </div>
+      <div class="holding-box">
+        <div class="holding-symbol">C</div>
+        <label>目前拥有的 C</label>
+        <input id="holding_C" type="number" min="0" step="any" value="0">
+      </div>
+    </div>
+
+    <div class="gold-config">
+      <div class="gold-config-title">金币预算与固定手续费</div>
+      <div class="hint">
+        每一步金币消耗只和<b>左边最终得到的目标物品数量</b>有关：
+        <code>本步金币 = 得到的目标物品数量 × 该目标物品固定金币费率</code>。
+        例如得到1,000个C，每得到1个C消耗2金币，则本步需要2,000金币。
+      </div>
+
+      <div class="gold-grid">
+        <div class="gold-box">
+          <div class="gold-symbol">当前金币</div>
+          <label>目前实际可用金币</label>
+          <input id="holding_gold" type="number" min="0" step="any" value="0">
+        </div>
+
+        <div class="gold-box">
+          <div class="gold-symbol">目标 c</div>
+          <label>每得到1个 c 消耗金币</label>
+          <input id="gold_per_c" type="number" min="0" step="any" value="0">
+        </div>
+
+        <div class="gold-box">
+          <div class="gold-symbol">目标 d</div>
+          <label>每得到1个 d 消耗金币</label>
+          <input id="gold_per_d" type="number" min="0" step="any" value="0">
+        </div>
+
+        <div class="gold-box">
+          <div class="gold-symbol">目标 e</div>
+          <label>每得到1个 e 消耗金币</label>
+          <input id="gold_per_e" type="number" min="0" step="any" value="0">
+        </div>
+
+        <div class="gold-box">
+          <div class="gold-symbol">目标 E</div>
+          <label>每得到1个 E 消耗金币</label>
+          <input id="gold_per_E" type="number" min="0" step="any" value="0">
+        </div>
+
+        <div class="gold-box">
+          <div class="gold-symbol">目标 C</div>
+          <label>每得到1个 C 消耗金币</label>
+          <input id="gold_per_C" type="number" min="0" step="any" value="0">
+        </div>
+
+        <div class="gold-box">
+          <div class="gold-symbol">金币价值（自动计算）</div>
+          <div class="small" style="line-height:1.75">
+            无需手动填写。系统会根据每条路线的
+            <b>本金、最终d、净利润和金币消耗</b>，自动计算：
+            每金币带来的d利润、每1万d本金所需金币，以及金币的盈亏平衡价值。
+          </div>
+        </div>
+      </div>
+
+      <div class="gold-summary">
+        系统会同时比较全部持仓、全部可行路线和金币预算，允许
+        <b>只兑换一部分数量</b>，也允许把同一种资源拆分到不同路线，
+        通过线性优化选择最终d最多的全局策略。
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <button class="primary" data-action="calculate">生成金币约束下的最优操作</button>
+      <button class="secondary" data-action="clear-holdings">清空当前持仓与金币</button>
+    </div>
+
+    <div id="nextActionArea" class="next-action">
+      <div class="empty">填写当前持仓后，系统会直接告诉你下一步兑换什么。</div>
+    </div>
+
+    <div class="notice">
+      每一步执行前都可以在步骤卡片中填写最新兑换比例。
+      若比例与上方一致，系统不会修改；若比例变化，会更新对应盘口并立即重算路线。
+      完成交易后，再把实际成交后的新持仓和剩余金币重新填入。
+      若金币不够，系统会自动缩小兑换数量或改走金币效率更高的路线。
+      慢挂方案仍存在等待成交和价格变化风险。
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>③ 保存、复制和分享 JSON</h2>
+    <div class="hint">
+      手动填写兑换表后，可以一键生成 JSON。把 JSON 复制给其他人，
+      对方粘贴后点击“从 JSON 导入”，即可恢复相同的市场兑换数据。
+    </div>
+
+    <div class="share-card">
+      <div>
+        <span class="share-type">市场 JSON</span>
+        包含20个方向的兑换比例和固定金币费率，适合分享给其他玩家。
+      </div>
+      <div class="share-actions">
+        <button class="primary" data-action="generate-share" data-share-type="market">
+          生成市场 JSON
+        </button>
+        <button class="ghost" data-action="generate-share" data-share-type="full">
+          生成完整 JSON
+        </button>
+        <button class="secondary" data-action="copy-share">
+          复制 JSON
+        </button>
+        <button class="secondary" data-action="download-share">
+          下载 JSON 文件
+        </button>
+        <button class="ghost" data-action="import-share">
+          从下方 JSON 导入
+        </button>
+      </div>
+
+      <textarea id="shareJsonOutput" class="share-output"
+        placeholder="点击“生成市场 JSON”，或把别人发给你的 JSON 粘贴到这里。"></textarea>
+
+      <div id="shareStatus" class="share-status">
+        市场 JSON 会保存兑换表和固定金币费率；完整 JSON 还会保存当前持仓、金币余额和页面设置。
+      </div>
+    </div>
+  </section>
+
+  <details class="advanced-block">
+    <summary>展开完整矩阵、价差与64条路线排行榜</summary>
+    <div class="advanced-inner">
+
+  <section class="card">
+    <h2>高级分析 A：自动计算后的转换率矩阵</h2>
+    <h3>秒出售矩阵</h3>
+    <div class="hint">1单位行资源立即卖出后，可以得到多少单位列资源。</div>
+    <div id="fastMatrix" class="table-wrap section-gap"></div>
+
+    <h3>慢挂出售矩阵</h3>
+    <div class="hint">慢挂 A→B = 1 ÷ 反向秒出 B→A。</div>
+    <div id="slowMatrix" class="table-wrap section-gap"></div>
+  </section>
+
+  <section class="card">
+    <h2>高级分析 B：每组资源的快卖与慢挂差价</h2>
+    <div id="spreadArea"><div class="empty">填写数量后自动计算。</div></div>
+  </section>
+
+  <section class="card">
+    <h2>高级分析 C：纯汇率闭环排行榜（未分配当前金币）</h2>
+    <div class="hint">
+      包含同一商品两步倒货，例如 <code>d→e→d</code>。
+      20个方向都可用时，共计算64条长度2～5的简单闭环。
+    </div>
+    <div id="rankingArea" class="section-gap">
+      <div class="empty">填写数量后自动计算。</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>高级分析 D：量化分析总结</h2>
+    <div id="summaryArea"><div class="empty">尚未计算。</div></div>
+  </section>
+
+    </div>
+  </details>
+
+  <div class="footer">所有计算均在本地浏览器中完成，不会上传市场数据。</div>
+</div>
+
+<script src="app://local/arbitrage-entry.js?v=1.7.7"></script>
+</body>
+</html>

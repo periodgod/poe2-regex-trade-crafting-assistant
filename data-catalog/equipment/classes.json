@@ -1,0 +1,508 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": "2026-06-18",
+  "game": "Path of Exile 2",
+  "recordCount": 33,
+  "source": {
+    "name": "PoE2DB item category index + community normalized base pools",
+    "confidence": "high-for-class-list",
+    "notice": "此表是装备类别索引，不代表每一个具体基底已经内置。完整具体基底与词缀池由 data-snapshot 更新器抓取。"
+  },
+  "records": [
+    {
+      "id": "claws",
+      "nameZh": "爪",
+      "nameEn": "Claws",
+      "group": "单手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "one_hand",
+        "attack_weapon",
+        "claw"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "daggers",
+      "nameZh": "匕首",
+      "nameEn": "Daggers",
+      "group": "单手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "one_hand",
+        "attack_weapon",
+        "dagger"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "wands",
+      "nameZh": "法杖",
+      "nameEn": "Wands",
+      "group": "单手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "one_hand",
+        "caster",
+        "wand"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "one_hand_swords",
+      "nameZh": "单手剑",
+      "nameEn": "One Hand Swords",
+      "group": "单手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "one_hand",
+        "attack_weapon",
+        "sword"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "one_hand_axes",
+      "nameZh": "单手斧",
+      "nameEn": "One Hand Axes",
+      "group": "单手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "one_hand",
+        "attack_weapon",
+        "axe"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "one_hand_maces",
+      "nameZh": "单手锤",
+      "nameEn": "One Hand Maces",
+      "group": "单手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "one_hand",
+        "attack_weapon",
+        "mace"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "sceptres",
+      "nameZh": "权杖",
+      "nameEn": "Sceptres",
+      "group": "单手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "one_hand",
+        "caster",
+        "sceptre"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "spears",
+      "nameZh": "长矛",
+      "nameEn": "Spears",
+      "group": "单手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "one_hand",
+        "attack_weapon",
+        "spear"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "flails",
+      "nameZh": "链枷",
+      "nameEn": "Flails",
+      "group": "单手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "one_hand",
+        "attack_weapon",
+        "flail"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "bows",
+      "nameZh": "弓",
+      "nameEn": "Bows",
+      "group": "双手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "two_hand",
+        "attack_weapon",
+        "bow"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "staves",
+      "nameZh": "长杖",
+      "nameEn": "Staves",
+      "group": "双手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "two_hand",
+        "caster",
+        "staff"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "two_hand_swords",
+      "nameZh": "双手剑",
+      "nameEn": "Two Hand Swords",
+      "group": "双手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "two_hand",
+        "attack_weapon",
+        "sword"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "two_hand_axes",
+      "nameZh": "双手斧",
+      "nameEn": "Two Hand Axes",
+      "group": "双手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "two_hand",
+        "attack_weapon",
+        "axe"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "two_hand_maces",
+      "nameZh": "双手锤",
+      "nameEn": "Two Hand Maces",
+      "group": "双手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "two_hand",
+        "attack_weapon",
+        "mace"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "quarterstaves",
+      "nameZh": "长棍",
+      "nameEn": "Quarterstaves",
+      "group": "双手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "two_hand",
+        "attack_weapon",
+        "quarterstaff"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "crossbows",
+      "nameZh": "弩",
+      "nameEn": "Crossbows",
+      "group": "双手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "two_hand",
+        "attack_weapon",
+        "crossbow"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "traps",
+      "nameZh": "陷阱工具",
+      "nameEn": "Traps",
+      "group": "双手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "two_hand",
+        "trap"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "talismans",
+      "nameZh": "护符武器",
+      "nameEn": "Talismans",
+      "group": "双手武器",
+      "tags": [
+        "equipment",
+        "weapon",
+        "two_hand",
+        "talisman"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "quivers",
+      "nameZh": "箭袋",
+      "nameEn": "Quivers",
+      "group": "副手",
+      "tags": [
+        "equipment",
+        "offhand",
+        "quiver"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "shields",
+      "nameZh": "盾牌",
+      "nameEn": "Shields",
+      "group": "副手",
+      "tags": [
+        "equipment",
+        "offhand",
+        "shield"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "bucklers",
+      "nameZh": "轻盾",
+      "nameEn": "Bucklers",
+      "group": "副手",
+      "tags": [
+        "equipment",
+        "offhand",
+        "buckler"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "foci",
+      "nameZh": "法器",
+      "nameEn": "Foci",
+      "group": "副手",
+      "tags": [
+        "equipment",
+        "offhand",
+        "caster",
+        "focus"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "gloves",
+      "nameZh": "手套",
+      "nameEn": "Gloves",
+      "group": "防具",
+      "tags": [
+        "equipment",
+        "armour",
+        "gloves"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "boots",
+      "nameZh": "鞋子",
+      "nameEn": "Boots",
+      "group": "防具",
+      "tags": [
+        "equipment",
+        "armour",
+        "boots"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "body_armours",
+      "nameZh": "胸甲",
+      "nameEn": "Body Armours",
+      "group": "防具",
+      "tags": [
+        "equipment",
+        "armour",
+        "body_armour"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "helmets",
+      "nameZh": "头盔",
+      "nameEn": "Helmets",
+      "group": "防具",
+      "tags": [
+        "equipment",
+        "armour",
+        "helmet"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "amulets",
+      "nameZh": "项链",
+      "nameEn": "Amulets",
+      "group": "珠宝",
+      "tags": [
+        "equipment",
+        "jewellery",
+        "amulet"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "rings",
+      "nameZh": "戒指",
+      "nameEn": "Rings",
+      "group": "珠宝",
+      "tags": [
+        "equipment",
+        "jewellery",
+        "ring"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "belts",
+      "nameZh": "腰带",
+      "nameEn": "Belts",
+      "group": "珠宝",
+      "tags": [
+        "equipment",
+        "jewellery",
+        "belt"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "life_flasks",
+      "nameZh": "生命药剂",
+      "nameEn": "Life Flasks",
+      "group": "药剂",
+      "tags": [
+        "equipment",
+        "flask",
+        "life_flask"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "mana_flasks",
+      "nameZh": "魔力药剂",
+      "nameEn": "Mana Flasks",
+      "group": "药剂",
+      "tags": [
+        "equipment",
+        "flask",
+        "mana_flask"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "charms",
+      "nameZh": "护符",
+      "nameEn": "Charms",
+      "group": "护符",
+      "tags": [
+        "equipment",
+        "charm"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    },
+    {
+      "id": "jewels",
+      "nameZh": "珠宝",
+      "nameEn": "Jewels",
+      "group": "珠宝",
+      "tags": [
+        "equipment",
+        "jewel"
+      ],
+      "maxPrefixes": 3,
+      "maxSuffixes": 3,
+      "craftable": true
+    }
+  ]
+}

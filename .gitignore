@@ -1,0 +1,7 @@
+*.zip
+*.exe
+*.msi
+node_modules/
+.vite/
+dist/
+*.log

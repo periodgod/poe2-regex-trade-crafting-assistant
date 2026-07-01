@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "presets": [
+    {
+      "id": "map-safe-template",
+      "name": "地图安全模板（请按流派修改）",
+      "category": "map",
+      "must": [],
+      "any": [],
+      "exclude": [
+        {"pattern":"回复率降低","literal":true},
+        {"pattern":"怪物暴击","literal":true},
+        {"pattern":"怪物速度提高","literal":true}
+      ],
+      "numeric": []
+    },
+    {
+      "id": "map-value-template",
+      "name": "高收益地图模板",
+      "category": "map",
+      "must": [],
+      "any": [],
+      "exclude": [],
+      "numeric": [
+        {"label":"怪物群规模","min":20,"group":"must","literalLabel":true},
+        {"label":"引路石掉落几率","min":80,"group":"must","literalLabel":true}
+      ]
+    },
+    {
+      "id": "equipment-life-res",
+      "name": "生命 + 任意元素抗性",
+      "category": "equipment",
+      "must": [{"pattern":"最大生命|生命上限","literal":false}],
+      "any": [
+        {"pattern":"火焰抗性","literal":true},
+        {"pattern":"冰霜抗性","literal":true},
+        {"pattern":"闪电抗性","literal":true}
+      ],
+      "exclude": [],
+      "numeric": []
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 2,
+  "dataVersion": "1.7.7-chronicle-cn-0.5.2-2026-06-18",
+  "game": "Path of Exile 2",
+  "generatedAt": "2026-06-18T00:00:00.000Z",
+  "source": {
+    "name": "POE2 Assistant strict rules + Chronicle Chinese display metadata",
+    "confidence": "metadata-only",
+    "notice": "本目录保存《远古归来》0.5.2 当前补丁的通货状态机与机制元数据。具体基底、精华、符文、灵魂核心和预兆的中文名称/物品说明由 poe2db.tw/cn（流亡2编年史）同步；概率、T级、冲突组和精确底材关系来自经过严格校验的 Craft of Exile 数据图。编年史未匹配的专有名称保留来源英文，禁止机器翻译。"
+  },
+  "files": {
+    "bases": [],
+    "modifiers": [],
+    "currencies": [
+      "currencies/core.json"
+    ],
+    "omens": [
+      "omens/core.json"
+    ],
+    "rules": [
+      "rules/item-limits.json"
+    ],
+    "localization": [
+      "localization/zh-CN.json"
+    ],
+    "mechanics": [
+      "mechanics/current-0.5.2.json"
+    ]
+  },
+  "strictSnapshotRequired": true
+}

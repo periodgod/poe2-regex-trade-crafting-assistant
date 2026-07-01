@@ -1,0 +1,14 @@
+{
+  "name": "poe2-cn-market-monitor-web",
+  "version": "1.7.0",
+  "private": true,
+  "description": "Standalone web test page for POE2 CN trade monitor.",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

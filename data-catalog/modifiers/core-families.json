@@ -1,0 +1,309 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": "2026-06-18",
+  "coverage": "core-search-index-not-probability-pool",
+  "recordCount": 50,
+  "notice": "此文件只用于中文搜索与词缀家族导航。正式概率必须从 data-snapshot/mods.json 的底材/T级/权重记录计算。",
+  "records": [
+    {
+      "id": "max_life",
+      "templateEn": "+# to maximum Life",
+      "nameZh": "最大生命",
+      "group": "defence"
+    },
+    {
+      "id": "max_mana",
+      "templateEn": "+# to maximum Mana",
+      "nameZh": "最大魔力",
+      "group": "resource"
+    },
+    {
+      "id": "max_es",
+      "templateEn": "+# to maximum Energy Shield",
+      "nameZh": "最大能量护盾",
+      "group": "defence"
+    },
+    {
+      "id": "inc_armour",
+      "templateEn": "#% increased Armour",
+      "nameZh": "护甲提高",
+      "group": "defence"
+    },
+    {
+      "id": "inc_evasion_rating",
+      "templateEn": "#% increased Evasion Rating",
+      "nameZh": "闪避值提高",
+      "group": "defence"
+    },
+    {
+      "id": "inc_es",
+      "templateEn": "#% increased Energy Shield",
+      "nameZh": "能量护盾提高",
+      "group": "defence"
+    },
+    {
+      "id": "movement_speed",
+      "templateEn": "#% increased Movement Speed",
+      "nameZh": "移动速度提高",
+      "group": "speed"
+    },
+    {
+      "id": "str",
+      "templateEn": "+# to Strength",
+      "nameZh": "力量",
+      "group": "attribute"
+    },
+    {
+      "id": "dex",
+      "templateEn": "+# to Dexterity",
+      "nameZh": "敏捷",
+      "group": "attribute"
+    },
+    {
+      "id": "int",
+      "templateEn": "+# to Intelligence",
+      "nameZh": "智慧",
+      "group": "attribute"
+    },
+    {
+      "id": "all_attributes",
+      "templateEn": "# to all Attributes",
+      "nameZh": "所有属性",
+      "group": "attribute"
+    },
+    {
+      "id": "fire_res",
+      "templateEn": "+#% to Fire Resistance",
+      "nameZh": "火焰抗性",
+      "group": "resistance"
+    },
+    {
+      "id": "cold_res",
+      "templateEn": "+#% to Cold Resistance",
+      "nameZh": "冰霜抗性",
+      "group": "resistance"
+    },
+    {
+      "id": "lightning_res",
+      "templateEn": "+#% to Lightning Resistance",
+      "nameZh": "闪电抗性",
+      "group": "resistance"
+    },
+    {
+      "id": "chaos_res",
+      "templateEn": "+#% to Chaos Resistance",
+      "nameZh": "混沌抗性",
+      "group": "resistance"
+    },
+    {
+      "id": "all_elemental_ress",
+      "templateEn": "+#% to all Elemental Resistances",
+      "nameZh": "所有元素抗性",
+      "group": "resistance"
+    },
+    {
+      "id": "inc_attack_speed",
+      "templateEn": "#% increased Attack Speed",
+      "nameZh": "攻击速度提高",
+      "group": "speed"
+    },
+    {
+      "id": "inc_cast_speed",
+      "templateEn": "#% increased Cast Speed",
+      "nameZh": "施法速度提高",
+      "group": "speed"
+    },
+    {
+      "id": "inc_physical_dmg",
+      "templateEn": "#% increased Physical Damage",
+      "nameZh": "物理伤害提高",
+      "group": "damage"
+    },
+    {
+      "id": "inc_spell_dmg",
+      "templateEn": "#% increased Spell Damage",
+      "nameZh": "法术伤害提高",
+      "group": "damage"
+    },
+    {
+      "id": "inc_elemental_dmg",
+      "templateEn": "#% increased Elemental Damage",
+      "nameZh": "元素伤害提高",
+      "group": "damage"
+    },
+    {
+      "id": "adds_physical_dmg",
+      "templateEn": "Adds # to # Physical Damage",
+      "nameZh": "附加物理伤害",
+      "group": "damage"
+    },
+    {
+      "id": "adds_fire_dmg",
+      "templateEn": "Adds # to # Fire Damage",
+      "nameZh": "附加火焰伤害",
+      "group": "damage"
+    },
+    {
+      "id": "adds_cold_dmg",
+      "templateEn": "Adds # to # Cold Damage",
+      "nameZh": "附加冰霜伤害",
+      "group": "damage"
+    },
+    {
+      "id": "adds_lightning_dmg",
+      "templateEn": "Adds # to # Lightning Damage",
+      "nameZh": "附加闪电伤害",
+      "group": "damage"
+    },
+    {
+      "id": "adds_chaos_dmg",
+      "templateEn": "Adds # to # Chaos damage",
+      "nameZh": "附加混沌伤害",
+      "group": "damage"
+    },
+    {
+      "id": "inc_crit_hit_chance",
+      "templateEn": "#% increased Critical Hit Chance",
+      "nameZh": "暴击率提高",
+      "group": "critical"
+    },
+    {
+      "id": "inc_crit_dmg_bonus",
+      "templateEn": "#% increased Critical Damage Bonus",
+      "nameZh": "暴击伤害加成提高",
+      "group": "critical"
+    },
+    {
+      "id": "accuracy_rating",
+      "templateEn": "+# to Accuracy Rating",
+      "nameZh": "命中值",
+      "group": "attack"
+    },
+    {
+      "id": "inc_projectile_speed",
+      "templateEn": "#% increased Projectile Speed",
+      "nameZh": "投射物速度提高",
+      "group": "projectile"
+    },
+    {
+      "id": "inc_reload_speed",
+      "templateEn": "#% increased Reload Speed",
+      "nameZh": "装填速度提高",
+      "group": "crossbow"
+    },
+    {
+      "id": "level_all_spell_skills",
+      "templateEn": "+# to Level of all Spell Skills",
+      "nameZh": "所有法术技能等级",
+      "group": "skill"
+    },
+    {
+      "id": "level_all_melee_skills",
+      "templateEn": "+# to Level of all Melee Skills",
+      "nameZh": "所有近战技能等级",
+      "group": "skill"
+    },
+    {
+      "id": "level_all_projectile_skills",
+      "templateEn": "+# to Level of all Projectile Skills",
+      "nameZh": "所有投射物技能等级",
+      "group": "skill"
+    },
+    {
+      "id": "level_all_minion_skills",
+      "templateEn": "+# to Level of all Minion Skills",
+      "nameZh": "所有召唤生物技能等级",
+      "group": "skill"
+    },
+    {
+      "id": "spirit",
+      "templateEn": "+# to Spirit",
+      "nameZh": "精魂",
+      "group": "resource"
+    },
+    {
+      "id": "inc_spirit",
+      "templateEn": "#% increased Spirit",
+      "nameZh": "精魂提高",
+      "group": "resource"
+    },
+    {
+      "id": "inc_mana_regeneration_rate",
+      "templateEn": "#% increased Mana Regeneration Rate",
+      "nameZh": "魔力再生率提高",
+      "group": "resource"
+    },
+    {
+      "id": "life_regeneration_per_second",
+      "templateEn": "# Life Regeneration per second",
+      "nameZh": "每秒生命再生",
+      "group": "recovery"
+    },
+    {
+      "id": "leech_physical_attack_dmg_as_life",
+      "templateEn": "Leech #% of Physical Attack Damage as Life",
+      "nameZh": "物理攻击伤害偷取生命",
+      "group": "leech"
+    },
+    {
+      "id": "leech_physical_attack_dmg_as_mana",
+      "templateEn": "Leech #% of Physical Attack Damage as Mana",
+      "nameZh": "物理攻击伤害偷取魔力",
+      "group": "leech"
+    },
+    {
+      "id": "inc_rarity_items_found",
+      "templateEn": "#% increased Rarity of Items found",
+      "nameZh": "物品稀有度提高",
+      "group": "utility"
+    },
+    {
+      "id": "inc_quantity_gold_dropped_by_slain_enemies",
+      "templateEn": "#% increased Quantity of Gold Dropped by Slain Enemies",
+      "nameZh": "击杀敌人掉落金币数量提高",
+      "group": "utility"
+    },
+    {
+      "id": "block_chance",
+      "templateEn": "+#% to Block chance",
+      "nameZh": "格挡几率",
+      "group": "defence"
+    },
+    {
+      "id": "stun_threshold",
+      "templateEn": "+# to Stun Threshold",
+      "nameZh": "眩晕阈值",
+      "group": "defence"
+    },
+    {
+      "id": "inc_global_defences",
+      "templateEn": "#% increased Global Defences",
+      "nameZh": "全局防御提高",
+      "group": "defence"
+    },
+    {
+      "id": "inc_skill_effect_duration",
+      "templateEn": "#% increased Skill Effect Duration",
+      "nameZh": "技能效果持续时间提高",
+      "group": "skill"
+    },
+    {
+      "id": "inc_area_effect_for_attacks",
+      "templateEn": "#% increased Area of Effect for Attacks",
+      "nameZh": "攻击效果区域提高",
+      "group": "attack"
+    },
+    {
+      "id": "inc_mana_cost_efficiency",
+      "templateEn": "#% increased Mana Cost Efficiency",
+      "nameZh": "魔力消耗效率提高",
+      "group": "resource"
+    },
+    {
+      "id": "reduced_attribute_requirements",
+      "templateEn": "#% reduced Attribute Requirements",
+      "nameZh": "属性需求降低",
+      "group": "utility"
+    }
+  ]
+}

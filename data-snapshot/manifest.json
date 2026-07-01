@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 2,
+  "status": "not-downloaded",
+  "strictBasePools": false,
+  "updatedAt": null,
+  "source": "Craft of Exile PoE2 exact base/modifier graph",
+  "files": {},
+  "notice": "严格做装数据尚未下载。运行 UPDATE_FULL_POE2_DATA.cmd 后，只有通过精确底材池、词缀组、T级、物品等级和正权重校验的快照才会启用模拟；不会回退到演示词缀池。"
+}

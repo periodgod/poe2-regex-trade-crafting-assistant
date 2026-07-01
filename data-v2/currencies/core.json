@@ -1,0 +1,649 @@
+{
+  "kind": "currencies",
+  "schemaVersion": 2,
+  "records": [
+    {
+      "id": "transmute",
+      "name": "蜕变石",
+      "englishName": "Orb of Transmutation",
+      "category": "add",
+      "inputRarities": [
+        "normal"
+      ],
+      "description": "将普通装备升级为带 1 条随机显式词缀的魔法装备。",
+      "sourceUrl": "https://poe2db.tw/us/Orb_of_Transmutation",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "outputRarity": "magic",
+      "addCount": 1,
+      "retainExisting": true,
+      "minModifierLevel": 0,
+      "minExplicitAffixes": 0,
+      "maxExplicitAffixes": 0,
+      "maxTotalAffixes": 2
+    },
+    {
+      "id": "greater_transmute",
+      "name": "高阶蜕变石",
+      "englishName": "Greater Orb of Transmutation",
+      "category": "add",
+      "inputRarities": [
+        "normal"
+      ],
+      "description": "将普通装备升级为魔法装备并增加 1 条随机词缀；新词缀的词缀等级至少为 44。",
+      "sourceUrl": "https://poe2db.tw/us/Greater_Orb_of_Transmutation",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "outputRarity": "magic",
+      "addCount": 1,
+      "retainExisting": true,
+      "minModifierLevel": 44,
+      "minExplicitAffixes": 0,
+      "maxExplicitAffixes": 0,
+      "maxTotalAffixes": 2
+    },
+    {
+      "id": "perfect_transmute",
+      "name": "完美蜕变石",
+      "englishName": "Perfect Orb of Transmutation",
+      "category": "add",
+      "inputRarities": [
+        "normal"
+      ],
+      "description": "将普通装备升级为魔法装备并增加 1 条随机词缀；新词缀的词缀等级至少为 70。",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Orb_of_Transmutation",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "outputRarity": "magic",
+      "addCount": 1,
+      "retainExisting": true,
+      "minModifierLevel": 70,
+      "minExplicitAffixes": 0,
+      "maxExplicitAffixes": 0,
+      "maxTotalAffixes": 2
+    },
+    {
+      "id": "augment",
+      "name": "增幅石",
+      "englishName": "Orb of Augmentation",
+      "category": "add",
+      "inputRarities": [
+        "magic"
+      ],
+      "description": "为只有 1 条显式词缀的魔法装备增加 1 条随机词缀；魔法装备最多 2 条显式词缀。",
+      "sourceUrl": "https://poe2db.tw/us/Orb_of_Augmentation",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "outputRarity": "magic",
+      "addCount": 1,
+      "retainExisting": true,
+      "minModifierLevel": 0,
+      "minExplicitAffixes": 1,
+      "maxExplicitAffixes": 1,
+      "maxTotalAffixes": 2
+    },
+    {
+      "id": "greater_augment",
+      "name": "高阶增幅石",
+      "englishName": "Greater Orb of Augmentation",
+      "category": "add",
+      "inputRarities": [
+        "magic"
+      ],
+      "description": "为只有 1 条显式词缀的魔法装备增加 1 条词缀；新词缀的词缀等级至少为 44。",
+      "sourceUrl": "https://poe2db.tw/us/Greater_Orb_of_Augmentation",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "outputRarity": "magic",
+      "addCount": 1,
+      "retainExisting": true,
+      "minModifierLevel": 44,
+      "minExplicitAffixes": 1,
+      "maxExplicitAffixes": 1,
+      "maxTotalAffixes": 2
+    },
+    {
+      "id": "perfect_augment",
+      "name": "完美增幅石",
+      "englishName": "Perfect Orb of Augmentation",
+      "category": "add",
+      "inputRarities": [
+        "magic"
+      ],
+      "description": "为只有 1 条显式词缀的魔法装备增加 1 条词缀；新词缀的词缀等级至少为 70。",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Orb_of_Augmentation",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "outputRarity": "magic",
+      "addCount": 1,
+      "retainExisting": true,
+      "minModifierLevel": 70,
+      "minExplicitAffixes": 1,
+      "maxExplicitAffixes": 1,
+      "maxTotalAffixes": 2
+    },
+    {
+      "id": "regal",
+      "name": "富豪石",
+      "englishName": "Regal Orb",
+      "category": "add",
+      "inputRarities": [
+        "magic"
+      ],
+      "description": "将魔法装备升级为稀有装备，保留现有词缀并增加 1 条随机词缀。",
+      "sourceUrl": "https://poe2db.tw/us/Regal_Orb",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "outputRarity": "rare",
+      "addCount": 1,
+      "retainExisting": true,
+      "minModifierLevel": 0,
+      "minExplicitAffixes": 1,
+      "maxExplicitAffixes": 2,
+      "maxTotalAffixes": 6
+    },
+    {
+      "id": "greater_regal",
+      "name": "高阶富豪石",
+      "englishName": "Greater Regal Orb",
+      "category": "add",
+      "inputRarities": [
+        "magic"
+      ],
+      "description": "将魔法装备升级为稀有装备，保留现有词缀并增加 1 条词缀；新词缀的词缀等级至少为 35。",
+      "sourceUrl": "https://poe2db.tw/us/Greater_Regal_Orb",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "outputRarity": "rare",
+      "addCount": 1,
+      "retainExisting": true,
+      "minModifierLevel": 35,
+      "minExplicitAffixes": 1,
+      "maxExplicitAffixes": 2,
+      "maxTotalAffixes": 6
+    },
+    {
+      "id": "perfect_regal",
+      "name": "完美富豪石",
+      "englishName": "Perfect Regal Orb",
+      "category": "add",
+      "inputRarities": [
+        "magic"
+      ],
+      "description": "将魔法装备升级为稀有装备，保留现有词缀并增加 1 条词缀；新词缀的词缀等级至少为 50。",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Regal_Orb",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "outputRarity": "rare",
+      "addCount": 1,
+      "retainExisting": true,
+      "minModifierLevel": 50,
+      "minExplicitAffixes": 1,
+      "maxExplicitAffixes": 2,
+      "maxTotalAffixes": 6
+    },
+    {
+      "id": "alchemy",
+      "name": "点金石",
+      "englishName": "Orb of Alchemy",
+      "category": "reroll",
+      "inputRarities": [
+        "normal",
+        "magic"
+      ],
+      "description": "将普通或魔法装备升级为恰有 4 条随机显式词缀的稀有装备；原有显式词缀不会保留。",
+      "sourceUrl": "https://poe2db.tw/us/Orb_of_Alchemy",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "outputRarity": "rare",
+      "addCount": 4,
+      "retainExisting": false,
+      "minModifierLevel": 0,
+      "maxTotalAffixes": 6
+    },
+    {
+      "id": "exalt",
+      "name": "崇高石",
+      "englishName": "Exalted Orb",
+      "category": "add",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "为至少还有 1 个显式词缀空位的稀有装备增加 1 条随机词缀。",
+      "sourceUrl": "https://poe2db.tw/us/Exalted_Orb",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "outputRarity": "rare",
+      "addCount": 1,
+      "retainExisting": true,
+      "minModifierLevel": 0,
+      "maxExplicitAffixes": 5,
+      "maxTotalAffixes": 6
+    },
+    {
+      "id": "greater_exalt",
+      "name": "高阶崇高石",
+      "englishName": "Greater Exalted Orb",
+      "category": "add",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "为有空位的稀有装备增加 1 条词缀；新词缀的词缀等级至少为 35。",
+      "sourceUrl": "https://poe2db.tw/us/Greater_Exalted_Orb",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "outputRarity": "rare",
+      "addCount": 1,
+      "retainExisting": true,
+      "minModifierLevel": 35,
+      "maxExplicitAffixes": 5,
+      "maxTotalAffixes": 6
+    },
+    {
+      "id": "perfect_exalt",
+      "name": "完美崇高石",
+      "englishName": "Perfect Exalted Orb",
+      "category": "add",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "为有空位的稀有装备增加 1 条词缀；新词缀的词缀等级至少为 50。",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Exalted_Orb",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "outputRarity": "rare",
+      "addCount": 1,
+      "retainExisting": true,
+      "minModifierLevel": 50,
+      "maxExplicitAffixes": 5,
+      "maxTotalAffixes": 6
+    },
+    {
+      "id": "annul",
+      "name": "剥离石",
+      "englishName": "Orb of Annulment",
+      "category": "remove",
+      "inputRarities": [
+        "magic",
+        "rare"
+      ],
+      "description": "从魔法或稀有装备随机移除 1 条可移除的显式词缀；锁定或破裂词缀不进入候选。",
+      "sourceUrl": "https://poe2db.tw/us/Orb_of_Annulment",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "removeCount": 1,
+      "minExplicitAffixes": 1
+    },
+    {
+      "id": "chaos",
+      "name": "混沌石",
+      "englishName": "Chaos Orb",
+      "category": "replace",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "从稀有装备随机移除 1 条可移除显式词缀，再从该装备的精确词缀池增加 1 条随机词缀。",
+      "sourceUrl": "https://poe2db.tw/us/Chaos_Orb",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "removeCount": 1,
+      "addCount": 1,
+      "minModifierLevel": 0,
+      "minExplicitAffixes": 1,
+      "maxTotalAffixes": 6
+    },
+    {
+      "id": "greater_chaos",
+      "name": "高阶混沌石",
+      "englishName": "Greater Chaos Orb",
+      "category": "replace",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "从稀有装备随机移除 1 条词缀，再增加 1 条词缀；新增词缀的词缀等级至少为 35。",
+      "sourceUrl": "https://poe2db.tw/us/Greater_Chaos_Orb",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "removeCount": 1,
+      "addCount": 1,
+      "minModifierLevel": 35,
+      "minExplicitAffixes": 1,
+      "maxTotalAffixes": 6
+    },
+    {
+      "id": "perfect_chaos",
+      "name": "完美混沌石",
+      "englishName": "Perfect Chaos Orb",
+      "category": "replace",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "从稀有装备随机移除 1 条词缀，再增加 1 条词缀；新增词缀的词缀等级至少为 50。",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Chaos_Orb",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "removeCount": 1,
+      "addCount": 1,
+      "minModifierLevel": 50,
+      "minExplicitAffixes": 1,
+      "maxTotalAffixes": 6
+    },
+    {
+      "id": "fracturing",
+      "name": "破溃宝珠",
+      "englishName": "Fracturing Orb",
+      "category": "fracture",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "用于至少有 4 条显式词缀且尚无破裂词缀的稀有装备，随机将 1 条可选显式词缀变为破裂词缀。",
+      "sourceUrl": "https://poe2db.tw/us/Fracturing_Orb",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "minExplicitAffixes": 4,
+      "requiresNoFracturedAffix": true
+    },
+    {
+      "id": "gnawed_collarbone",
+      "name": "啃噬锁骨",
+      "englishName": "Gnawed Collarbone",
+      "category": "desecrate",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "低阶深渊骨材：为物品等级不高于 64 的符合类型稀有物品增加 1 条未揭示亵渎词缀；若显式词缀已满，先随机移除 1 条可移除显式词缀。未揭示占位会占用前缀或后缀槽。",
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Gnawed_Collarbone",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "allowedBaseTags": [
+        "jewellery"
+      ],
+      "minModifierLevel": 0,
+      "maxTotalAffixes": 6,
+      "maxItemLevel": 64,
+      "lowTier": true,
+      "currentDefault": false
+    },
+    {
+      "id": "gnawed_jawbone",
+      "name": "啃噬颚骨",
+      "englishName": "Gnawed Jawbone",
+      "category": "desecrate",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "低阶深渊骨材：为物品等级不高于 64 的符合类型稀有物品增加 1 条未揭示亵渎词缀；若显式词缀已满，先随机移除 1 条可移除显式词缀。未揭示占位会占用前缀或后缀槽。",
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Gnawed_Jawbone",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "allowedBaseTags": [
+        "weapon",
+        "quiver"
+      ],
+      "minModifierLevel": 0,
+      "maxTotalAffixes": 6,
+      "maxItemLevel": 64,
+      "lowTier": true,
+      "currentDefault": false
+    },
+    {
+      "id": "gnawed_rib",
+      "name": "啃噬肋骨",
+      "englishName": "Gnawed Rib",
+      "category": "desecrate",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "低阶深渊骨材：为物品等级不高于 64 的符合类型稀有物品增加 1 条未揭示亵渎词缀；若显式词缀已满，先随机移除 1 条可移除显式词缀。未揭示占位会占用前缀或后缀槽。",
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Gnawed_Rib",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "allowedBaseTags": [
+        "armour"
+      ],
+      "minModifierLevel": 0,
+      "maxTotalAffixes": 6,
+      "maxItemLevel": 64,
+      "lowTier": true,
+      "currentDefault": false
+    },
+    {
+      "id": "preserved_collarbone",
+      "name": "保存完好的锁骨",
+      "englishName": "Preserved Collarbone",
+      "category": "desecrate",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "当前常用深渊骨材：没有目标物品等级上限。为符合类型的稀有物品增加 1 条未揭示亵渎词缀；若显式词缀已满，先随机移除 1 条可移除显式词缀。",
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Preserved_Collarbone",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "allowedBaseTags": [
+        "jewellery"
+      ],
+      "minModifierLevel": 0,
+      "maxTotalAffixes": 6,
+      "currentDefault": true
+    },
+    {
+      "id": "preserved_jawbone",
+      "name": "保存完好的颚骨",
+      "englishName": "Preserved Jawbone",
+      "category": "desecrate",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "当前常用深渊骨材：没有目标物品等级上限。为符合类型的稀有物品增加 1 条未揭示亵渎词缀；若显式词缀已满，先随机移除 1 条可移除显式词缀。",
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Preserved_Jawbone",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "allowedBaseTags": [
+        "weapon",
+        "quiver"
+      ],
+      "minModifierLevel": 0,
+      "maxTotalAffixes": 6,
+      "currentDefault": true
+    },
+    {
+      "id": "preserved_rib",
+      "name": "保存完好的肋骨",
+      "englishName": "Preserved Rib",
+      "category": "desecrate",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "当前常用深渊骨材：没有目标物品等级上限。为符合类型的稀有物品增加 1 条未揭示亵渎词缀；若显式词缀已满，先随机移除 1 条可移除显式词缀。",
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Preserved_Rib",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "allowedBaseTags": [
+        "armour"
+      ],
+      "minModifierLevel": 0,
+      "maxTotalAffixes": 6,
+      "currentDefault": true
+    },
+    {
+      "id": "preserved_cranium",
+      "name": "保存完好的颅骨",
+      "englishName": "Preserved Cranium",
+      "category": "desecrate",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "当前常用深渊骨材：没有目标物品等级上限。为符合类型的稀有物品增加 1 条未揭示亵渎词缀；若显式词缀已满，先随机移除 1 条可移除显式词缀。",
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Preserved_Cranium",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "allowedBaseTags": [
+        "jewel"
+      ],
+      "minModifierLevel": 0,
+      "maxTotalAffixes": 6,
+      "currentDefault": true
+    },
+    {
+      "id": "preserved_vertebrae",
+      "name": "保存完好的脊椎骨",
+      "englishName": "Preserved Vertebrae",
+      "category": "desecrate",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "为稀有路石增加 1 条未揭示的亵渎词缀；若显式词缀已满，随机移除一条可移除词缀，新占位继承被移除词缀的前缀或后缀类型。该物品已停止掉落，仅用于永久抢先体验联盟中的既有物品模拟。",
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Preserved_Vertebrae",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "waystone",
+      "allowedBaseTags": [
+        "waystone"
+      ],
+      "minModifierLevel": 0,
+      "maxTotalAffixes": 6,
+      "legacy": true,
+      "dropDisabled": true,
+      "currentDefault": false,
+      "referenceOnly": true
+    },
+    {
+      "id": "ancient_collarbone",
+      "name": "远古锁骨",
+      "englishName": "Ancient Collarbone",
+      "category": "desecrate",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "远古深渊骨材：限制的是揭示候选的最低词缀等级 40，而不是目标物品等级。为符合类型的稀有物品增加 1 条未揭示亵渎词缀；若已满词缀，先随机移除 1 条可移除显式词缀。",
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Ancient_Collarbone",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "allowedBaseTags": [
+        "jewellery"
+      ],
+      "minModifierLevel": 40,
+      "maxTotalAffixes": 6,
+      "currentDefault": true
+    },
+    {
+      "id": "ancient_jawbone",
+      "name": "远古颚骨",
+      "englishName": "Ancient Jawbone",
+      "category": "desecrate",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "远古深渊骨材：限制的是揭示候选的最低词缀等级 40，而不是目标物品等级。为符合类型的稀有物品增加 1 条未揭示亵渎词缀；若已满词缀，先随机移除 1 条可移除显式词缀。",
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Ancient_Jawbone",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "allowedBaseTags": [
+        "weapon",
+        "quiver"
+      ],
+      "minModifierLevel": 40,
+      "maxTotalAffixes": 6,
+      "currentDefault": true
+    },
+    {
+      "id": "ancient_rib",
+      "name": "远古肋骨",
+      "englishName": "Ancient Rib",
+      "category": "desecrate",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "远古深渊骨材：限制的是揭示候选的最低词缀等级 40，而不是目标物品等级。为符合类型的稀有物品增加 1 条未揭示亵渎词缀；若已满词缀，先随机移除 1 条可移除显式词缀。",
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Ancient_Rib",
+      "implementationStatus": "ready",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "allowedBaseTags": [
+        "armour"
+      ],
+      "minModifierLevel": 40,
+      "maxTotalAffixes": 6,
+      "currentDefault": true
+    },
+    {
+      "id": "altered_collarbone",
+      "name": "异变锁骨",
+      "englishName": "Altered Collarbone",
+      "category": "desecrate",
+      "inputRarities": [
+        "rare"
+      ],
+      "description": "0.5.2 当前创生之树相关资料项：可亵渎稀有项链、戒指或腰带，并有机会出现异界词缀。公开来源没有足够的精确候选池与权重，因此只展示规则，不伪造随机结果。",
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Altered_Collarbone",
+      "implementationStatus": "reference-only",
+      "allowCorrupted": false,
+      "allowMirrored": false,
+      "targetDomain": "equipment",
+      "allowedBaseTags": [
+        "jewellery"
+      ],
+      "minModifierLevel": 0,
+      "maxTotalAffixes": 6,
+      "currentDefault": true,
+      "referenceOnly": true
+    }
+  ],
+  "notice": "implementationStatus=ready 的通货进入状态机。普通通货严格只读取 normal 词缀池；亵渎骨材只创建未揭示占位，揭示时按 normal+desecrated 分池、现有词缀家族、空余槽位、物品等级、预兆和催化品质重新计算动态权重。公开资料没有给出的随机分布不会被伪造。"
+}

@@ -1,0 +1,12 @@
+{
+  "kind": "localization",
+  "schemaVersion": 2,
+  "locale": "zh-CN",
+  "sources": {
+    "normal": "普通词缀",
+    "essence": "精华词缀",
+    "desecrated": "亵渎词缀",
+    "corrupted": "腐化词缀",
+    "implicit": "固有词缀"
+  }
+}

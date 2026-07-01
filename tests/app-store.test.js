@@ -1,0 +1,34 @@
+'use strict';
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
+const { STORE_VERSION, readStore, writeStore, updateStore, addHistory } = require('../src/app-store');
+
+(async () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'poe-store-'));
+  const file = path.join(dir, 'store.json');
+  const initial = await readStore(file);
+  assert.equal(initial.version, STORE_VERSION);
+  assert.equal(Object.hasOwn(initial, 'pricePreferences'), false);
+  initial.currencyPrices.exalt = 2;
+  initial.arbitrageState = { version: 1, data: { capital: '1234' }, savedAt: new Date().toISOString() };
+  initial.marketMonitorState = { version: 1, activeId: 'm1', monitors: [{ id: 'm1', name: '测试监控', url: 'https://www.pathofexile.com/trade2/search/poe2/Standard/abc', priceCurrency: 'divine', minPrice: 1, maxPrice: 3, intervalSeconds: 20, autoOpen: true }], savedAt: new Date().toISOString() };
+  initial.regexWorkspace = { scope: 'tablet', locale: 'zh', mode: 'must', tabletView: 'uniques', must: [{ id: 'm1' }], any: [], exclude: [], limit: 500 };
+  await writeStore(file, addHistory(initial, { type: 'regex', title: '测试' }));
+  const stored = await readStore(file);
+  assert.equal(stored.currencyPrices.exalt, 2);
+  assert.equal(stored.history.length, 1);
+  assert.equal(stored.arbitrageState.data.capital, '1234');
+  assert.equal(stored.marketMonitorState.monitors[0].priceCurrency, 'divine');
+  assert.equal(stored.marketMonitorState.monitors[0].intervalSeconds, 20);
+  assert.equal(stored.regexWorkspace.scope, 'tablet');
+  await updateStore(file, (value) => { value.regexPresets.push({ id: 'x', name: 'X' }); return value; });
+  assert.equal((await readStore(file)).regexPresets.length, 1);
+  fs.writeFileSync(file, '{broken json', 'utf8');
+  const recovered = await readStore(file);
+  assert.equal(recovered.arbitrageState.data.capital, '1234');
+  assert.equal(recovered.marketMonitorState.monitors[0].id, 'm1');
+  fs.rmSync(dir, { recursive: true, force: true });
+  console.log('app-store tests passed');
+})().catch((error) => { console.error(error); process.exitCode = 1; });
