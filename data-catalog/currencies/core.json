@@ -1,0 +1,1054 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": "2026-06-18",
+  "recordCount": 37,
+  "source": {
+    "name": "PoE2DB Currency index and item detail descriptions",
+    "confidence": "high-for-name-and-effect",
+    "notice": "静态目录只描述通货用途与使用限制，不包含市场价格。中文名保留常用译名，英文名用于稳定匹配。"
+  },
+  "records": [
+    {
+      "id": "blacksmith_whetstone",
+      "nameZh": "磨刀石",
+      "nameEn": "Blacksmith's Whetstone",
+      "kind": "quality",
+      "effectZh": "提升武术武器的品质。",
+      "targets": [
+        "martial_weapon"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Blacksmith%27s_Whetstone",
+      "implementationStatus": "catalogued",
+      "qualityCurrency": true,
+      "aliasesZh": [
+        "武器匠磨刀石"
+      ],
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "martial_weapon"
+        ],
+        "qualityAction": "increase",
+        "usageNoteZh": "只能用于武术武器；具体每次增加的品质受物品稀有度影响。"
+      }
+    },
+    {
+      "id": "arcanist_etcher",
+      "nameZh": "奥术师的铭刻",
+      "nameEn": "Arcanist's Etcher",
+      "kind": "quality",
+      "effectZh": "提升法杖、长杖或权杖的品质。",
+      "targets": [
+        "wand",
+        "staff",
+        "sceptre"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Arcanist%27s_Etcher",
+      "implementationStatus": "catalogued",
+      "qualityCurrency": true,
+      "aliasesZh": [
+        "奥术蚀刻器"
+      ],
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "wand",
+          "staff",
+          "sceptre"
+        ],
+        "qualityAction": "increase",
+        "usageNoteZh": "只能用于法杖、长杖或权杖；具体每次增加的品质受物品稀有度影响。"
+      }
+    },
+    {
+      "id": "scroll_wisdom",
+      "nameZh": "知识卷轴",
+      "nameEn": "Scroll of Wisdom",
+      "kind": "identify",
+      "effectZh": "鉴定未鉴定物品。",
+      "targets": [
+        "unidentified_item"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Scroll_of_Wisdom",
+      "implementationStatus": "catalogued",
+      "aliasesZh": [
+        "智慧卷轴"
+      ],
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": false,
+        "requiresUnmirrored": false,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "unidentified_item"
+        ],
+        "usageNoteZh": "仅用于未鉴定物品；不会改变词缀。"
+      }
+    },
+    {
+      "id": "chaos",
+      "nameZh": "混沌石",
+      "nameEn": "Chaos Orb",
+      "kind": "replace",
+      "effectZh": "从稀有物品随机移除一条词缀，再添加一条随机词缀。",
+      "targets": [
+        "rare_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Chaos_Orb",
+      "implementationStatus": "ready",
+      "minimumModifierLevel": 0,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "minExplicitAffixes": 1,
+        "removeCount": 1,
+        "addCount": 1,
+        "minimumModifierLevel": 0,
+        "requiresRemovableAffix": true,
+        "usageNoteZh": "需要稀有装备至少有一条可移除显式词缀；先随机移除一条，再从当前精确底材池加入一条。"
+      }
+    },
+    {
+      "id": "greater_chaos",
+      "nameZh": "高阶混沌石",
+      "nameEn": "Greater Chaos Orb",
+      "kind": "replace",
+      "effectZh": "从稀有物品随机移除一条词缀，再添加一条词缀；新增词缀最低词缀等级为 35。",
+      "targets": [
+        "rare_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Greater_Chaos_Orb",
+      "implementationStatus": "ready",
+      "minimumModifierLevel": 35,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "minExplicitAffixes": 1,
+        "removeCount": 1,
+        "addCount": 1,
+        "minimumModifierLevel": 35,
+        "requiresRemovableAffix": true,
+        "usageNoteZh": "与混沌石相同，但新增词缀等级至少为35。"
+      }
+    },
+    {
+      "id": "perfect_chaos",
+      "nameZh": "完美混沌石",
+      "nameEn": "Perfect Chaos Orb",
+      "kind": "replace",
+      "effectZh": "从稀有物品随机移除一条词缀，再添加一条词缀；新增词缀最低词缀等级为 50。",
+      "targets": [
+        "rare_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Chaos_Orb",
+      "implementationStatus": "ready",
+      "minimumModifierLevel": 50,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "minExplicitAffixes": 1,
+        "removeCount": 1,
+        "addCount": 1,
+        "minimumModifierLevel": 50,
+        "requiresRemovableAffix": true,
+        "usageNoteZh": "与混沌石相同，但新增词缀等级至少为50。"
+      }
+    },
+    {
+      "id": "armourers_scrap",
+      "nameZh": "护甲片",
+      "nameEn": "Armourer's Scrap",
+      "kind": "quality",
+      "effectZh": "提升护甲类防具的品质。",
+      "targets": [
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Armourer%27s_Scrap",
+      "implementationStatus": "catalogued",
+      "qualityCurrency": true,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "armour"
+        ],
+        "qualityAction": "increase",
+        "usageNoteZh": "只能用于护甲类装备；具体每次增加的品质受物品稀有度影响。"
+      }
+    },
+    {
+      "id": "mirror_kalandra",
+      "nameZh": "卡兰德的魔镜",
+      "nameEn": "Mirror of Kalandra",
+      "kind": "copy",
+      "effectZh": "创建一件非传奇、非镜像物品的镜像复制品；镜像物品之后不能被修改。",
+      "targets": [
+        "non_unique_non_mirrored_item"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Mirror_of_Kalandra",
+      "implementationStatus": "catalogued",
+      "aliasesZh": [
+        "卡兰德之镜"
+      ],
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "item"
+        ],
+        "excludedRarities": [
+          "unique"
+        ],
+        "createsMirroredCopy": true,
+        "usageNoteZh": "不能用于传奇或已镜像物品；生成的镜像复制品之后不能被常规方式修改。"
+      }
+    },
+    {
+      "id": "hinekora_lock",
+      "nameZh": "辛格拉的发辫",
+      "nameEn": "Hinekora's Lock",
+      "kind": "forecast",
+      "effectZh": "预见下一次通货作用于物品的结果；物品被其他方式修改后预见效果消失。",
+      "targets": [
+        "equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Hinekora%27s_Lock",
+      "implementationStatus": "catalogued",
+      "aliasesZh": [
+        "欣可拉之锁",
+        "辛格拉之锁"
+      ],
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "equipment"
+        ],
+        "previewNextCurrency": true,
+        "usageNoteZh": "用于预见下一次通货结果；物品被其他方式修改后预见失效。当前模拟器仅展示限制，不模拟预见分支。"
+      }
+    },
+    {
+      "id": "alchemy",
+      "nameZh": "点金石",
+      "nameEn": "Orb of Alchemy",
+      "kind": "reroll",
+      "effectZh": "将普通或魔法物品升级为带四条随机词缀的稀有物品。",
+      "targets": [
+        "normal_or_magic_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Orb_of_Alchemy",
+      "implementationStatus": "ready",
+      "resultRarity": "rare",
+      "generatedAffixes": 4,
+      "aliasesZh": [
+        "炼金石"
+      ],
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "normal",
+          "magic"
+        ],
+        "outputRarity": "rare",
+        "rerollToExplicitAffixes": 4,
+        "retainExisting": false,
+        "usageNoteZh": "仅用于普通或魔法装备；升级为恰有四条随机显式词缀的稀有装备，原有显式词缀不保留。"
+      }
+    },
+    {
+      "id": "chance",
+      "nameZh": "机会石",
+      "nameEn": "Orb of Chance",
+      "kind": "rarity",
+      "effectZh": "使普通物品随机变为传奇物品，失败时物品会被摧毁。",
+      "targets": [
+        "normal_item"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Orb_of_Chance",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "normal_item"
+        ],
+        "inputRarities": [
+          "normal"
+        ],
+        "destroysOnFailure": true,
+        "usageNoteZh": "仅用于有对应传奇版本的普通物品；失败会摧毁物品。"
+      }
+    },
+    {
+      "id": "transmute",
+      "nameZh": "蜕变石",
+      "nameEn": "Orb of Transmutation",
+      "kind": "add",
+      "effectZh": "将普通物品升级为带一条随机词缀的魔法物品。",
+      "targets": [
+        "normal_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Orb_of_Transmutation",
+      "implementationStatus": "ready",
+      "minimumModifierLevel": 0,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "normal"
+        ],
+        "outputRarity": "magic",
+        "addCount": 1,
+        "minimumModifierLevel": 0,
+        "maxExplicitAffixesBeforeUse": 0,
+        "usageNoteZh": "仅用于无显式词缀的普通装备。"
+      }
+    },
+    {
+      "id": "greater_transmute",
+      "nameZh": "高阶蜕变石",
+      "nameEn": "Greater Orb of Transmutation",
+      "kind": "add",
+      "effectZh": "将普通物品升级为魔法物品，新增词缀最低词缀等级为 44。",
+      "targets": [
+        "normal_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Greater_Orb_of_Transmutation",
+      "implementationStatus": "catalogued",
+      "minimumModifierLevel": 44,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "normal"
+        ],
+        "outputRarity": "magic",
+        "addCount": 1,
+        "minimumModifierLevel": 44,
+        "maxExplicitAffixesBeforeUse": 0,
+        "usageNoteZh": "仅用于普通装备；新增词缀等级至少为44。"
+      }
+    },
+    {
+      "id": "perfect_transmute",
+      "nameZh": "完美蜕变石",
+      "nameEn": "Perfect Orb of Transmutation",
+      "kind": "add",
+      "effectZh": "将普通物品升级为魔法物品，新增词缀最低词缀等级为 70。",
+      "targets": [
+        "normal_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Orb_of_Transmutation",
+      "implementationStatus": "catalogued",
+      "minimumModifierLevel": 70,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "normal"
+        ],
+        "outputRarity": "magic",
+        "addCount": 1,
+        "minimumModifierLevel": 70,
+        "maxExplicitAffixesBeforeUse": 0,
+        "usageNoteZh": "仅用于普通装备；新增词缀等级至少为70。"
+      }
+    },
+    {
+      "id": "exalt",
+      "nameZh": "崇高石",
+      "nameEn": "Exalted Orb",
+      "kind": "add",
+      "effectZh": "为仍有空余词缀槽的稀有物品添加一条随机词缀。",
+      "targets": [
+        "rare_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Exalted_Orb",
+      "implementationStatus": "ready",
+      "minimumModifierLevel": 0,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "maxExplicitAffixesBeforeUse": 5,
+        "requiresOpenAffix": true,
+        "addCount": 1,
+        "minimumModifierLevel": 0,
+        "usageNoteZh": "仅用于未满六条显式词缀的稀有装备。"
+      }
+    },
+    {
+      "id": "greater_exalt",
+      "nameZh": "高阶崇高石",
+      "nameEn": "Greater Exalted Orb",
+      "kind": "add",
+      "effectZh": "为稀有物品添加一条词缀，新增词缀最低词缀等级为 35。",
+      "targets": [
+        "rare_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Greater_Exalted_Orb",
+      "implementationStatus": "ready",
+      "minimumModifierLevel": 35,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "maxExplicitAffixesBeforeUse": 5,
+        "requiresOpenAffix": true,
+        "addCount": 1,
+        "minimumModifierLevel": 35,
+        "usageNoteZh": "仅用于有空位的稀有装备；新增词缀等级至少为35。"
+      }
+    },
+    {
+      "id": "perfect_exalt",
+      "nameZh": "完美崇高石",
+      "nameEn": "Perfect Exalted Orb",
+      "kind": "add",
+      "effectZh": "为稀有物品添加一条词缀，新增词缀最低词缀等级为 50。",
+      "targets": [
+        "rare_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Exalted_Orb",
+      "implementationStatus": "ready",
+      "minimumModifierLevel": 50,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "maxExplicitAffixesBeforeUse": 5,
+        "requiresOpenAffix": true,
+        "addCount": 1,
+        "minimumModifierLevel": 50,
+        "usageNoteZh": "仅用于有空位的稀有装备；新增词缀等级至少为50。"
+      }
+    },
+    {
+      "id": "regal",
+      "nameZh": "富豪石",
+      "nameEn": "Regal Orb",
+      "kind": "add",
+      "effectZh": "将魔法物品升级为稀有物品，并添加一条随机词缀。",
+      "targets": [
+        "magic_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Regal_Orb",
+      "implementationStatus": "ready",
+      "minimumModifierLevel": 0,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "magic"
+        ],
+        "minExplicitAffixes": 1,
+        "maxExplicitAffixesBeforeUse": 2,
+        "outputRarity": "rare",
+        "addCount": 1,
+        "minimumModifierLevel": 0,
+        "usageNoteZh": "仅用于魔法装备；保留已有词缀并增加一条。"
+      }
+    },
+    {
+      "id": "greater_regal",
+      "nameZh": "高阶富豪石",
+      "nameEn": "Greater Regal Orb",
+      "kind": "add",
+      "effectZh": "将魔法物品升级为稀有物品，新增词缀最低词缀等级为 35。",
+      "targets": [
+        "magic_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Greater_Regal_Orb",
+      "implementationStatus": "ready",
+      "minimumModifierLevel": 35,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "magic"
+        ],
+        "minExplicitAffixes": 1,
+        "maxExplicitAffixesBeforeUse": 2,
+        "outputRarity": "rare",
+        "addCount": 1,
+        "minimumModifierLevel": 35,
+        "usageNoteZh": "仅用于魔法装备；新增词缀等级至少为35。"
+      }
+    },
+    {
+      "id": "perfect_regal",
+      "nameZh": "完美富豪石",
+      "nameEn": "Perfect Regal Orb",
+      "kind": "add",
+      "effectZh": "将魔法物品升级为稀有物品，新增词缀最低词缀等级为 50。",
+      "targets": [
+        "magic_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Regal_Orb",
+      "implementationStatus": "ready",
+      "minimumModifierLevel": 50,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "magic"
+        ],
+        "minExplicitAffixes": 1,
+        "maxExplicitAffixesBeforeUse": 2,
+        "outputRarity": "rare",
+        "addCount": 1,
+        "minimumModifierLevel": 50,
+        "usageNoteZh": "仅用于魔法装备；新增词缀等级至少为50。"
+      }
+    },
+    {
+      "id": "augment",
+      "nameZh": "增幅石",
+      "nameEn": "Orb of Augmentation",
+      "kind": "add",
+      "effectZh": "为只有一条词缀的魔法物品添加一条随机词缀。",
+      "targets": [
+        "magic_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Orb_of_Augmentation",
+      "implementationStatus": "ready",
+      "minimumModifierLevel": 0,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "magic"
+        ],
+        "minExplicitAffixes": 1,
+        "maxExplicitAffixesBeforeUse": 1,
+        "addCount": 1,
+        "minimumModifierLevel": 0,
+        "usageNoteZh": "只能用于恰有一条显式词缀的魔法装备。"
+      }
+    },
+    {
+      "id": "greater_augment",
+      "nameZh": "高阶增幅石",
+      "nameEn": "Greater Orb of Augmentation",
+      "kind": "add",
+      "effectZh": "为只有一条词缀的魔法物品添加词缀，新增词缀最低词缀等级为 44。",
+      "targets": [
+        "magic_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Greater_Orb_of_Augmentation",
+      "implementationStatus": "catalogued",
+      "minimumModifierLevel": 44,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "magic"
+        ],
+        "minExplicitAffixes": 1,
+        "maxExplicitAffixesBeforeUse": 1,
+        "addCount": 1,
+        "minimumModifierLevel": 44,
+        "usageNoteZh": "只能用于恰有一条显式词缀的魔法装备；新增词缀等级至少为44。"
+      }
+    },
+    {
+      "id": "perfect_augment",
+      "nameZh": "完美增幅石",
+      "nameEn": "Perfect Orb of Augmentation",
+      "kind": "add",
+      "effectZh": "为只有一条词缀的魔法物品添加词缀，新增词缀最低词缀等级为 70。",
+      "targets": [
+        "magic_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Orb_of_Augmentation",
+      "implementationStatus": "catalogued",
+      "minimumModifierLevel": 70,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "magic"
+        ],
+        "minExplicitAffixes": 1,
+        "maxExplicitAffixesBeforeUse": 1,
+        "addCount": 1,
+        "minimumModifierLevel": 70,
+        "usageNoteZh": "只能用于恰有一条显式词缀的魔法装备；新增词缀等级至少为70。"
+      }
+    },
+    {
+      "id": "glassblower_bauble",
+      "nameZh": "玻璃弹珠",
+      "nameEn": "Glassblower's Bauble",
+      "kind": "quality",
+      "effectZh": "提升药剂的品质。",
+      "targets": [
+        "flask"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Glassblower%27s_Bauble",
+      "implementationStatus": "catalogued",
+      "qualityCurrency": true,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "flask"
+        ],
+        "qualityAction": "increase",
+        "usageNoteZh": "只能用于药剂。"
+      }
+    },
+    {
+      "id": "gemcutters_prism",
+      "nameZh": "宝石匠的棱镜",
+      "nameEn": "Gemcutter's Prism",
+      "kind": "quality",
+      "effectZh": "提升技能宝石的品质。",
+      "targets": [
+        "skill_gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Gemcutter%27s_Prism",
+      "implementationStatus": "catalogued",
+      "qualityCurrency": true,
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "skill_gem"
+        ],
+        "qualityAction": "increase",
+        "usageNoteZh": "只能用于技能宝石。"
+      }
+    },
+    {
+      "id": "lesser_jeweller",
+      "nameZh": "低等工匠石",
+      "nameEn": "Lesser Jeweller's Orb",
+      "kind": "socket",
+      "effectZh": "将技能宝石的辅助宝石插槽数量设为三。",
+      "targets": [
+        "skill_gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Lesser_Jeweller%27s_Orb",
+      "implementationStatus": "catalogued",
+      "supportSockets": 3,
+      "aliasesZh": [
+        "低阶珠宝匠石",
+        "低阶工匠石"
+      ],
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "skill_gem"
+        ],
+        "outputSupportSockets": 3,
+        "maxSupportSocketsBeforeUse": 2,
+        "usageNoteZh": "将辅助宝石插槽设为3；已有3个或更多时不能使用。"
+      }
+    },
+    {
+      "id": "greater_jeweller",
+      "nameZh": "高等工匠石",
+      "nameEn": "Greater Jeweller's Orb",
+      "kind": "socket",
+      "effectZh": "将已有三孔的技能宝石辅助插槽数量设为四。",
+      "targets": [
+        "skill_gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Greater_Jeweller%27s_Orb",
+      "implementationStatus": "catalogued",
+      "supportSockets": 4,
+      "aliasesZh": [
+        "高阶珠宝匠石",
+        "高阶工匠石"
+      ],
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "skill_gem"
+        ],
+        "requiredSupportSockets": 3,
+        "outputSupportSockets": 4,
+        "usageNoteZh": "只用于已有3个辅助宝石插槽的技能宝石。"
+      }
+    },
+    {
+      "id": "perfect_jeweller",
+      "nameZh": "完美工匠石",
+      "nameEn": "Perfect Jeweller's Orb",
+      "kind": "socket",
+      "effectZh": "将已有四孔的技能宝石辅助插槽数量设为五。",
+      "targets": [
+        "skill_gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Jeweller%27s_Orb",
+      "implementationStatus": "catalogued",
+      "supportSockets": 5,
+      "aliasesZh": [
+        "完美珠宝匠石"
+      ],
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "skill_gem"
+        ],
+        "requiredSupportSockets": 4,
+        "outputSupportSockets": 5,
+        "usageNoteZh": "只用于已有4个辅助宝石插槽的技能宝石。"
+      }
+    },
+    {
+      "id": "artificer_orb",
+      "nameZh": "巧匠石",
+      "nameEn": "Artificer's Orb",
+      "kind": "socket",
+      "effectZh": "为武术武器或护甲添加一个符文/灵魂核心用的强化插槽。",
+      "targets": [
+        "martial_weapon",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Artificer%27s_Orb",
+      "implementationStatus": "catalogued",
+      "aliasesZh": [
+        "工匠石"
+      ],
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "martial_weapon",
+          "armour"
+        ],
+        "requiresAvailableSocketCapacity": true,
+        "usageNoteZh": "只能用于武术武器或护甲，且底材仍有强化插槽容量；不同物品类别的插槽上限不同。"
+      }
+    },
+    {
+      "id": "divine",
+      "nameZh": "神圣石",
+      "nameEn": "Divine Orb",
+      "kind": "values",
+      "effectZh": "重掷物品词缀在当前等级范围内的数值，不改变词缀种类与 T 级。",
+      "targets": [
+        "equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Divine_Orb",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "magic",
+          "rare",
+          "unique"
+        ],
+        "rerollValuesWithinTier": true,
+        "usageNoteZh": "只重掷现有词缀在当前T级范围内的数值，不改变词缀种类、T级和数量。"
+      }
+    },
+    {
+      "id": "transmutation_shard",
+      "nameZh": "蜕变石碎片",
+      "nameEn": "Transmutation Shard",
+      "kind": "shard",
+      "effectZh": "集齐后合成为蜕变石。",
+      "targets": [
+        "currency"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Transmutation_Shard",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": false,
+        "requiresUnmirrored": false,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [],
+        "directUse": false,
+        "usageNoteZh": "不能直接作用于物品；堆叠后自动合成为蜕变石。"
+      }
+    },
+    {
+      "id": "chance_shard",
+      "nameZh": "机会石碎片",
+      "nameEn": "Chance Shard",
+      "kind": "shard",
+      "effectZh": "集齐后合成为机会石。",
+      "targets": [
+        "currency"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Chance_Shard",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": false,
+        "requiresUnmirrored": false,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [],
+        "directUse": false,
+        "usageNoteZh": "不能直接作用于物品；堆叠后自动合成为机会石。"
+      }
+    },
+    {
+      "id": "vaal",
+      "nameZh": "瓦尔宝珠",
+      "nameEn": "Vaal Orb",
+      "kind": "corrupt",
+      "effectZh": "腐化物品并产生不可预测的结果；腐化后通常不能再被普通通货修改。",
+      "targets": [
+        "item"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Vaal_Orb",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "item"
+        ],
+        "corruptsItem": true,
+        "irreversible": true,
+        "usageNoteZh": "只能用于未腐化、未镜像物品；结果不可预测并使物品腐化，普通通货通常不能再修改。"
+      }
+    },
+    {
+      "id": "annul",
+      "nameZh": "剥离石",
+      "nameEn": "Orb of Annulment",
+      "kind": "remove",
+      "effectZh": "从魔法或稀有物品上随机移除一条词缀。",
+      "targets": [
+        "magic_or_rare_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Orb_of_Annulment",
+      "implementationStatus": "ready",
+      "aliasesZh": [
+        "无效石"
+      ],
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "magic",
+          "rare"
+        ],
+        "minExplicitAffixes": 1,
+        "removeCount": 1,
+        "requiresRemovableAffix": true,
+        "usageNoteZh": "仅用于至少有一条可移除显式词缀的魔法或稀有装备；破裂或锁定词缀不进入随机移除候选。"
+      }
+    },
+    {
+      "id": "fracturing",
+      "nameZh": "破溃宝珠",
+      "nameEn": "Fracturing Orb",
+      "kind": "fracture",
+      "effectZh": "在至少有四条词缀的稀有物品上随机锁定一条词缀，使其不再被普通重铸移除。",
+      "targets": [
+        "rare_equipment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Fracturing_Orb",
+      "implementationStatus": "catalogued",
+      "aliasesZh": [
+        "分裂石"
+      ],
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "ready",
+        "targetTypes": [
+          "equipment"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "minExplicitAffixes": 4,
+        "requiresNoFracturedAffix": true,
+        "usageNoteZh": "仅用于至少有4条显式词缀且尚无破裂词缀的稀有装备；随机锁定一条可选显式词缀。"
+      }
+    },
+    {
+      "id": "regal_shard",
+      "nameZh": "富豪石碎片",
+      "nameEn": "Regal Shard",
+      "kind": "shard",
+      "effectZh": "集齐后合成为富豪石。",
+      "targets": [
+        "currency"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Regal_Shard",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": false,
+        "requiresUnmirrored": false,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [],
+        "directUse": false,
+        "usageNoteZh": "不能直接作用于物品；堆叠后自动合成为富豪石。"
+      }
+    },
+    {
+      "id": "artificer_shard",
+      "nameZh": "巧匠石碎片",
+      "nameEn": "Artificer's Shard",
+      "kind": "shard",
+      "effectZh": "集齐后合成为工匠石。",
+      "targets": [
+        "currency"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Artificer%27s_Shard",
+      "implementationStatus": "catalogued",
+      "aliasesZh": [
+        "工匠石碎片"
+      ],
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": false,
+        "requiresUnmirrored": false,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [],
+        "directUse": false,
+        "usageNoteZh": "不能直接作用于物品；堆叠后自动合成为巧匠石。"
+      }
+    }
+  ]
+}

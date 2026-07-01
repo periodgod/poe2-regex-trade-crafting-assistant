@@ -1,0 +1,273 @@
+{
+  "kind": "omens",
+  "schemaVersion": 2,
+  "records": [
+    {
+      "id": "omen_sinistral_exaltation",
+      "name": "左旋崇高预兆",
+      "englishName": "Omen of Sinistral Exaltation",
+      "triggerCurrency": [
+        "exalt",
+        "greater_exalt",
+        "perfect_exalt"
+      ],
+      "effect": {
+        "forceSide": "prefix"
+      },
+      "description": "下一次崇高石只会增加前缀。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Sinistral_Exaltation"
+    },
+    {
+      "id": "omen_dextral_exaltation",
+      "name": "右旋崇高预兆",
+      "englishName": "Omen of Dextral Exaltation",
+      "triggerCurrency": [
+        "exalt",
+        "greater_exalt",
+        "perfect_exalt"
+      ],
+      "effect": {
+        "forceSide": "suffix"
+      },
+      "description": "下一次崇高石只会增加后缀。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Dextral_Exaltation"
+    },
+    {
+      "id": "omen_greater_exaltation",
+      "name": "高阶崇高预兆",
+      "englishName": "Omen of Greater Exaltation",
+      "triggerCurrency": [
+        "exalt",
+        "greater_exalt",
+        "perfect_exalt"
+      ],
+      "effect": {
+        "addCountOverride": 2
+      },
+      "description": "下一次普通、高阶或完美崇高石增加 2 条随机词缀；两条新词缀仍分别遵守所用通货的最低词缀等级规则。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Greater_Exaltation"
+    },
+    {
+      "id": "omen_whittling",
+      "name": "削切预兆",
+      "englishName": "Omen of Whittling",
+      "triggerCurrency": [
+        "chaos",
+        "greater_chaos",
+        "perfect_chaos"
+      ],
+      "effect": {
+        "removeRule": "lowest_level"
+      },
+      "description": "下一次混沌石移除词缀等级最低的词缀。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Whittling"
+    },
+    {
+      "id": "omen_abyssal_echoes",
+      "name": "深渊回响预兆",
+      "englishName": "Omen of Abyssal Echoes",
+      "triggerCurrency": "reveal_desecrated",
+      "effect": {
+        "allowRerollOnce": true
+      },
+      "description": "下一次揭示亵渎词缀时可将三个选项重骰一次。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Abyssal_Echoes"
+    },
+    {
+      "id": "omen_dextral_necromancy",
+      "name": "右旋死灵预兆",
+      "englishName": "Omen of Dextral Necromancy",
+      "triggerCategory": "desecrate",
+      "effect": {
+        "forceSide": "suffix"
+      },
+      "description": "下一次亵渎只增加后缀。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Dextral_Necromancy"
+    },
+    {
+      "id": "omen_sinistral_necromancy",
+      "name": "左旋死灵预兆",
+      "englishName": "Omen of Sinistral Necromancy",
+      "triggerCategory": "desecrate",
+      "effect": {
+        "forceSide": "prefix"
+      },
+      "description": "下一次亵渎只增加前缀。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Sinistral_Necromancy"
+    },
+    {
+      "id": "omen_light",
+      "name": "光明预兆",
+      "englishName": "Omen of Light",
+      "triggerCurrency": "annul",
+      "effect": {
+        "removeSource": "desecrated"
+      },
+      "description": "下一次剥离石只移除亵渎词缀。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Light"
+    },
+    {
+      "id": "omen_putrefaction",
+      "name": "腐败预兆",
+      "englishName": "Omen of Putrefaction",
+      "triggerCategory": "desecrate",
+      "effect": {
+        "replaceAllWithUnrevealed": true,
+        "maxUnrevealed": 6,
+        "excludeExclusiveDesecrated": true,
+        "disableMinimumModifierLevel": true
+      },
+      "description": "下一次亵渎移除全部非破裂显式词缀，填满所有剩余前后缀槽为未揭示词缀并腐化物品；腐败预兆生成的词缀不会出现亵渎专属词缀。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Putrefaction"
+    },
+    {
+      "id": "omen_blackblooded",
+      "name": "黑血预兆",
+      "englishName": "Omen of the Blackblooded",
+      "triggerCategory": "desecrate",
+      "effect": {
+        "guaranteedTag": "kurgal_mod",
+        "allowedBaseTags": [
+          "weapon",
+          "jewellery"
+        ],
+        "blockedTags": [
+          "amanamu_mod",
+          "ulaman_mod"
+        ],
+        "disableMinimumModifierLevel": true
+      },
+      "description": "下一次武器或珠宝亵渎保证揭示选项中出现随机 Kurgal 词缀；另外两位巫妖词缀被屏蔽，且远古骨材的最低词缀等级效果失效。若当前底材无目标词缀，预兆仍被消耗并只给出普通词缀。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_the_Blackblooded"
+    },
+    {
+      "id": "omen_liege",
+      "name": "领主预兆",
+      "englishName": "Omen of the Liege",
+      "triggerCategory": "desecrate",
+      "effect": {
+        "guaranteedTag": "amanamu_mod",
+        "allowedBaseTags": [
+          "weapon",
+          "jewellery"
+        ],
+        "blockedTags": [
+          "kurgal_mod",
+          "ulaman_mod"
+        ],
+        "disableMinimumModifierLevel": true
+      },
+      "description": "下一次武器或珠宝亵渎保证揭示选项中出现随机 Amanamu 词缀；另外两位巫妖词缀被屏蔽，且远古骨材的最低词缀等级效果失效。若当前底材无目标词缀，预兆仍被消耗并只给出普通词缀。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_the_Liege"
+    },
+    {
+      "id": "omen_sovereign",
+      "name": "君王预兆",
+      "englishName": "Omen of the Sovereign",
+      "triggerCategory": "desecrate",
+      "effect": {
+        "guaranteedTag": "ulaman_mod",
+        "allowedBaseTags": [
+          "weapon",
+          "jewellery"
+        ],
+        "blockedTags": [
+          "amanamu_mod",
+          "kurgal_mod"
+        ],
+        "disableMinimumModifierLevel": true
+      },
+      "description": "下一次武器或珠宝亵渎保证揭示选项中出现随机 Ulaman 词缀；另外两位巫妖词缀被屏蔽，且远古骨材的最低词缀等级效果失效。若当前底材无目标词缀，预兆仍被消耗并只给出普通词缀。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_the_Sovereign"
+    },
+    {
+      "id": "omen_sinistral_annulment",
+      "name": "左旋剥离预兆",
+      "englishName": "Omen of Sinistral Annulment",
+      "triggerCurrency": "annul",
+      "effect": {
+        "removeSide": "prefix"
+      },
+      "description": "下一次剥离石只移除前缀。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Sinistral_Annulment"
+    },
+    {
+      "id": "omen_dextral_annulment",
+      "name": "右旋剥离预兆",
+      "englishName": "Omen of Dextral Annulment",
+      "triggerCurrency": "annul",
+      "effect": {
+        "removeSide": "suffix"
+      },
+      "description": "下一次剥离石只移除后缀。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Dextral_Annulment"
+    },
+    {
+      "id": "omen_sinistral_erasure",
+      "name": "左旋抹除预兆",
+      "englishName": "Omen of Sinistral Erasure",
+      "triggerCurrency": [
+        "chaos",
+        "greater_chaos",
+        "perfect_chaos"
+      ],
+      "effect": {
+        "removeSide": "prefix"
+      },
+      "description": "下一次混沌石只移除前缀。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Sinistral_Erasure"
+    },
+    {
+      "id": "omen_dextral_erasure",
+      "name": "右旋抹除预兆",
+      "englishName": "Omen of Dextral Erasure",
+      "triggerCurrency": [
+        "chaos",
+        "greater_chaos",
+        "perfect_chaos"
+      ],
+      "effect": {
+        "removeSide": "suffix"
+      },
+      "description": "下一次混沌石只移除后缀。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Dextral_Erasure"
+    },
+    {
+      "id": "omen_catalysing_exaltation",
+      "name": "催化崇高预兆",
+      "englishName": "Omen of Catalysing Exaltation",
+      "triggerCurrency": [
+        "exalt",
+        "greater_exalt",
+        "perfect_exalt"
+      ],
+      "effect": {
+        "consumeCatalystQualityForWeight": true
+      },
+      "description": "下一次崇高类通货消耗物品全部催化品质，并按催化类型动态提高对应词缀的出现权重；高阶崇高预兆增加的两条词缀都会使用同一倍率。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Catalysing_Exaltation"
+    },
+    {
+      "id": "omen_sinistral_crystallisation",
+      "name": "左旋结晶预兆",
+      "englishName": "Omen of Sinistral Crystallisation",
+      "triggerCategory": "essence-replace",
+      "effect": {
+        "removeSide": "prefix"
+      },
+      "description": "下一次完美或腐化精华只移除前缀。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Sinistral_Crystallisation"
+    },
+    {
+      "id": "omen_dextral_crystallisation",
+      "name": "右旋结晶预兆",
+      "englishName": "Omen of Dextral Crystallisation",
+      "triggerCategory": "essence-replace",
+      "effect": {
+        "removeSide": "suffix"
+      },
+      "description": "下一次完美或腐化精华只移除后缀。",
+      "sourceUrl": "https://poe2db.tw/cn/Omen_of_Dextral_Crystallisation"
+    }
+  ]
+}

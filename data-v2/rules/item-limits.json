@@ -1,0 +1,17 @@
+{
+  "kind": "rules",
+  "schemaVersion": 2,
+  "rarityLimits": {
+    "normal": {
+      "maxTotalAffixes": 0
+    },
+    "magic": {
+      "maxTotalAffixes": 2
+    },
+    "rare": {
+      "maxTotalAffixes": 6
+    }
+  },
+  "defaultMaxPrefixes": 3,
+  "defaultMaxSuffixes": 3
+}

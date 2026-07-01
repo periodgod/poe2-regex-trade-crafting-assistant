@@ -1,0 +1,57 @@
+{
+  "name": "poe2-regex-trade-crafting-assistant",
+  "version": "1.9.0",
+  "private": true,
+  "description": "POE 多区服桌面助手：四区服集市监控、完整正则生成器、离线通货计算、POE2 严格做装状态机与数据快照",
+  "main": "main.js",
+  "author": "张艺钟",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "check": "node --check main.js && node --check preload.js && node --check renderer/app.js && node --check renderer/arbitrage-entry.js && node --check renderer/arbitrage-bootstrap.js && node --check renderer/arbitrage.js && node --check renderer/regex-generator.js && node --check renderer/crafting-planner.js && node --check renderer/market-monitor.js && node --check src/item-parser.js && node --check src/item-import-resolver.js && node --check src/regex-engine.js && node --check src/crafting-engine.js && node --check src/app-store.js && node --check src/runtime-logger.js && node --check src/chronicle-zh.js && node --check src/crafting-special-actions.js && node --check src/crafting-data-repository.js && node --check src/item-state.js && node --check src/currency-state-machine.js && node --check src/poe2-catalog-repository.js && node --check src/full-snapshot-adapter.js && node --check src/snapshot-storage.js && node --check src/zh-localization.js && node --check src/market-monitor.js && node --check scripts/update-poe2-full-data.js && node --check scripts/validate-data-catalog.js && node --check scripts/validate-data-v2.js && node scripts/validate-data-v2.js && node scripts/validate-data-catalog.js && node tests/item-parser.test.js && node tests/item-import-resolver.test.js && node tests/regression.test.js && node tests/regex-engine.test.js && node tests/tablet-regex-integration.test.js && node tests/crafting-engine.test.js && node tests/app-store.test.js && node tests/runtime-logger.test.js && node tests/chronicle-zh.test.js && node tests/crafting-special-actions.test.js && node tests/ui-smoke.test.js && node tests/crafting-data-repository.test.js && node tests/item-state.test.js && node tests/currency-state-machine.test.js && node tests/poe2-catalog-repository.test.js && node tests/full-data-updater.test.js && node tests/full-snapshot-adapter.test.js && node tests/snapshot-storage.test.js && node tests/project-integrity.test.js && node tests/arbitrage-ui.test.js && node tests/arbitrage-entry-runtime.test.js && node tests/zh-localization.test.js && node tests/season-mechanics.test.js && node tests/light-theme-ui.test.js && node tests/market-monitor.test.js",
+    "dist:win": "npx --yes electron-builder@26.0.12 --win nsis portable",
+    "test": "node tests/item-parser.test.js && node tests/item-import-resolver.test.js && node tests/regression.test.js && node tests/regex-engine.test.js && node tests/tablet-regex-integration.test.js && node tests/crafting-engine.test.js && node tests/app-store.test.js && node tests/runtime-logger.test.js && node tests/chronicle-zh.test.js && node tests/crafting-special-actions.test.js && node tests/ui-smoke.test.js && node tests/crafting-data-repository.test.js && node tests/item-state.test.js && node tests/currency-state-machine.test.js && node tests/poe2-catalog-repository.test.js && node tests/full-data-updater.test.js && node tests/full-snapshot-adapter.test.js && node tests/snapshot-storage.test.js && node tests/project-integrity.test.js && node tests/arbitrage-ui.test.js && node tests/arbitrage-entry-runtime.test.js && node tests/zh-localization.test.js && node tests/season-mechanics.test.js && node tests/light-theme-ui.test.js && node tests/market-monitor.test.js",
+    "data:check": "node scripts/validate-data-v2.js && node scripts/validate-data-catalog.js",
+    "data:update": "node scripts/update-poe2-full-data.js"
+  },
+  "devDependencies": {
+    "electron": "40.0.0"
+  },
+  "build": {
+    "appId": "cn.zhangyizhong.poe.craftingassistant",
+    "productName": "POE 多区服正则与交易助手",
+    "asar": true,
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "renderer/**/*",
+      "assets/**/*",
+      "data/**/*",
+      "data-v2/**/*",
+      "package.json",
+      "data-catalog/**/*",
+      "data-snapshot/**/*",
+      "scripts/update-poe2-full-data.js"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "engines": {
+    "node": ">=22.12"
+  }
+}

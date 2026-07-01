@@ -1,0 +1,19 @@
+重要：先右键 ZIP 选择“全部解压”，不要在 ZIP 预览窗口直接双击 CMD。
+
+POE2 正则、交易与严格做装助手 v1.7.4
+
+完整解压后可直接双击 START_HERE.cmd，或按顺序运行：
+
+1. CHECK_PROJECT.cmd
+2. UPDATE_FULL_POE2_DATA.cmd
+3. RUN_APP.cmd
+
+首次安装 Electron 时，在 RUN_APP.cmd 中选择 1。选择 2 也会复用相同验证流程，只显示更详细日志。
+新版安装器会先验证清单 SHA-256，再尝试 GitHub Release API 的官方资源摘要；两者都不可达时，安全回退到 ZIP 路径、文件结构、Windows Authenticode 签名和 Electron 精确版本校验，不会在校验阶段执行下载文件。
+
+软件包含：
+- 完整正则生成器
+- 离线通货交易助手（无账号登录、无 Cookie）
+- 严格做装模拟器
+
+做装模拟器必须先获得通过校验的精确底材词缀快照。更新器会抓取 9 个完整来源文件（含底材与词缀名称映射），保存原始审计数据，并尝试 GitHub Raw、GitHub Raw 跳转及多个 jsDelivr 节点。更新失败不会覆盖上一次可用快照。

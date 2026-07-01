@@ -1,0 +1,325 @@
+{
+  "schemaVersion": 1,
+  "kind": "abyssal-bones",
+  "records": [
+    {
+      "id": "gnawed_collarbone",
+      "nameZh": "啃噬锁骨",
+      "nameEn": "Gnawed Collarbone",
+      "kind": "abyssal-bone",
+      "effectZh": "低阶深渊骨材：只能用于物品等级不高于 64 的对应稀有物品，加入 1 个未揭示亵渎词缀。",
+      "stackSize": 20,
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Gnawed_Collarbone",
+      "implementationStatus": "simulated",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "full-state-machine",
+        "targetTypes": [
+          "jewellery"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "maximumItemLevel": 64,
+        "minimumModifierLevel": 0,
+        "addsUnrevealedDesecratedModifier": true,
+        "usageNoteZh": "该材料仍在当前资料中列出，但属于低阶版本；界面默认折叠，避免与不受物等上限限制的保存完好/远古骨材混淆。"
+      },
+      "lowTier": true,
+      "currentDefault": false
+    },
+    {
+      "id": "gnawed_jawbone",
+      "nameZh": "啃噬颚骨",
+      "nameEn": "Gnawed Jawbone",
+      "kind": "abyssal-bone",
+      "effectZh": "低阶深渊骨材：只能用于物品等级不高于 64 的对应稀有物品，加入 1 个未揭示亵渎词缀。",
+      "stackSize": 20,
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Gnawed_Jawbone",
+      "implementationStatus": "simulated",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "full-state-machine",
+        "targetTypes": [
+          "weapon",
+          "quiver"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "maximumItemLevel": 64,
+        "minimumModifierLevel": 0,
+        "addsUnrevealedDesecratedModifier": true,
+        "usageNoteZh": "该材料仍在当前资料中列出，但属于低阶版本；界面默认折叠，避免与不受物等上限限制的保存完好/远古骨材混淆。"
+      },
+      "lowTier": true,
+      "currentDefault": false
+    },
+    {
+      "id": "gnawed_rib",
+      "nameZh": "啃噬肋骨",
+      "nameEn": "Gnawed Rib",
+      "kind": "abyssal-bone",
+      "effectZh": "低阶深渊骨材：只能用于物品等级不高于 64 的对应稀有物品，加入 1 个未揭示亵渎词缀。",
+      "stackSize": 20,
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Gnawed_Rib",
+      "implementationStatus": "simulated",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "full-state-machine",
+        "targetTypes": [
+          "armour"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "maximumItemLevel": 64,
+        "minimumModifierLevel": 0,
+        "addsUnrevealedDesecratedModifier": true,
+        "usageNoteZh": "该材料仍在当前资料中列出，但属于低阶版本；界面默认折叠，避免与不受物等上限限制的保存完好/远古骨材混淆。"
+      },
+      "lowTier": true,
+      "currentDefault": false
+    },
+    {
+      "id": "preserved_collarbone",
+      "nameZh": "保存完好的锁骨",
+      "nameEn": "Preserved Collarbone",
+      "kind": "abyssal-bone",
+      "effectZh": "为对应类别的稀有物品加入 1 个未揭示亵渎词缀；没有物品等级上限。词缀已满时先随机移除 1 条可移除显式词缀。",
+      "stackSize": 20,
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Preserved_Collarbone",
+      "implementationStatus": "simulated",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "full-state-machine",
+        "targetTypes": [
+          "jewellery"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "maximumItemLevel": null,
+        "minimumModifierLevel": 0,
+        "addsUnrevealedDesecratedModifier": true,
+        "usageNoteZh": "当前规则不限制目标物品等级。未揭示词缀占用一个前缀或后缀槽，之后在灵魂之井从三个候选中选择。"
+      },
+      "currentDefault": true
+    },
+    {
+      "id": "preserved_jawbone",
+      "nameZh": "保存完好的颚骨",
+      "nameEn": "Preserved Jawbone",
+      "kind": "abyssal-bone",
+      "effectZh": "为对应类别的稀有物品加入 1 个未揭示亵渎词缀；没有物品等级上限。词缀已满时先随机移除 1 条可移除显式词缀。",
+      "stackSize": 20,
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Preserved_Jawbone",
+      "implementationStatus": "simulated",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "full-state-machine",
+        "targetTypes": [
+          "weapon",
+          "quiver"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "maximumItemLevel": null,
+        "minimumModifierLevel": 0,
+        "addsUnrevealedDesecratedModifier": true,
+        "usageNoteZh": "当前规则不限制目标物品等级。未揭示词缀占用一个前缀或后缀槽，之后在灵魂之井从三个候选中选择。"
+      },
+      "currentDefault": true
+    },
+    {
+      "id": "preserved_rib",
+      "nameZh": "保存完好的肋骨",
+      "nameEn": "Preserved Rib",
+      "kind": "abyssal-bone",
+      "effectZh": "为对应类别的稀有物品加入 1 个未揭示亵渎词缀；没有物品等级上限。词缀已满时先随机移除 1 条可移除显式词缀。",
+      "stackSize": 20,
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Preserved_Rib",
+      "implementationStatus": "simulated",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "full-state-machine",
+        "targetTypes": [
+          "armour"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "maximumItemLevel": null,
+        "minimumModifierLevel": 0,
+        "addsUnrevealedDesecratedModifier": true,
+        "usageNoteZh": "当前规则不限制目标物品等级。未揭示词缀占用一个前缀或后缀槽，之后在灵魂之井从三个候选中选择。"
+      },
+      "currentDefault": true
+    },
+    {
+      "id": "preserved_cranium",
+      "nameZh": "保存完好的颅骨",
+      "nameEn": "Preserved Cranium",
+      "kind": "abyssal-bone",
+      "effectZh": "为对应类别的稀有物品加入 1 个未揭示亵渎词缀；没有物品等级上限。词缀已满时先随机移除 1 条可移除显式词缀。",
+      "stackSize": 20,
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Preserved_Cranium",
+      "implementationStatus": "simulated",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "full-state-machine",
+        "targetTypes": [
+          "jewel"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "maximumItemLevel": null,
+        "minimumModifierLevel": 0,
+        "addsUnrevealedDesecratedModifier": true,
+        "usageNoteZh": "当前规则不限制目标物品等级。未揭示词缀占用一个前缀或后缀槽，之后在灵魂之井从三个候选中选择。"
+      },
+      "currentDefault": true
+    },
+    {
+      "id": "preserved_vertebrae",
+      "nameZh": "保存完好的脊椎骨",
+      "nameEn": "Preserved Vertebrae",
+      "kind": "abyssal-bone",
+      "effectZh": "为稀有路石增加 1 条未揭示的亵渎词缀；若显式词缀已满，随机移除一条可移除词缀，新占位继承被移除词缀的前缀或后缀类型。",
+      "stackSize": 20,
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Preserved_Vertebrae",
+      "implementationStatus": "simulated",
+      "legacy": true,
+      "dropDisabled": true,
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "full-state-machine",
+        "targetTypes": [
+          "waystone"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "maximumItemLevel": null,
+        "minimumModifierLevel": 0,
+        "addsUnrevealedDesecratedModifier": true,
+        "usageNoteZh": "仅用于永久抢先体验联盟中的既有保存完好的脊椎骨；目标必须是未腐化、未镜像的稀有路石。若词缀已满，随机移除一条可移除词缀并继承其前/后缀类型。"
+      },
+      "currentDefault": false,
+      "referenceOnly": true
+    },
+    {
+      "id": "ancient_collarbone",
+      "nameZh": "远古锁骨",
+      "nameEn": "Ancient Collarbone",
+      "kind": "abyssal-bone",
+      "effectZh": "为对应类别的稀有物品加入 1 个未揭示亵渎词缀；揭示候选的词缀等级至少为 40。",
+      "stackSize": 20,
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Ancient_Collarbone",
+      "implementationStatus": "simulated",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "full-state-machine",
+        "targetTypes": [
+          "jewellery"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "maximumItemLevel": null,
+        "minimumModifierLevel": 40,
+        "addsUnrevealedDesecratedModifier": true,
+        "usageNoteZh": "“最低词缀等级 40”限制的是揭示候选，不是目标物品等级；目标物品仍需具备足够物品等级才能出现相应高阶词缀。"
+      },
+      "currentDefault": true
+    },
+    {
+      "id": "ancient_jawbone",
+      "nameZh": "远古颚骨",
+      "nameEn": "Ancient Jawbone",
+      "kind": "abyssal-bone",
+      "effectZh": "为对应类别的稀有物品加入 1 个未揭示亵渎词缀；揭示候选的词缀等级至少为 40。",
+      "stackSize": 20,
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Ancient_Jawbone",
+      "implementationStatus": "simulated",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "full-state-machine",
+        "targetTypes": [
+          "weapon",
+          "quiver"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "maximumItemLevel": null,
+        "minimumModifierLevel": 40,
+        "addsUnrevealedDesecratedModifier": true,
+        "usageNoteZh": "“最低词缀等级 40”限制的是揭示候选，不是目标物品等级；目标物品仍需具备足够物品等级才能出现相应高阶词缀。"
+      },
+      "currentDefault": true
+    },
+    {
+      "id": "ancient_rib",
+      "nameZh": "远古肋骨",
+      "nameEn": "Ancient Rib",
+      "kind": "abyssal-bone",
+      "effectZh": "为对应类别的稀有物品加入 1 个未揭示亵渎词缀；揭示候选的词缀等级至少为 40。",
+      "stackSize": 20,
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Ancient_Rib",
+      "implementationStatus": "simulated",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "full-state-machine",
+        "targetTypes": [
+          "armour"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "maximumItemLevel": null,
+        "minimumModifierLevel": 40,
+        "addsUnrevealedDesecratedModifier": true,
+        "usageNoteZh": "“最低词缀等级 40”限制的是揭示候选，不是目标物品等级；目标物品仍需具备足够物品等级才能出现相应高阶词缀。"
+      },
+      "currentDefault": true
+    },
+    {
+      "id": "altered_collarbone",
+      "nameZh": "异变锁骨",
+      "nameEn": "Altered Collarbone",
+      "kind": "abyssal-bone",
+      "effectZh": "亵渎稀有项链、戒指或腰带，并有机会提供异界词缀。",
+      "stackSize": 20,
+      "sourceUrl": "https://www.poe2wiki.net/wiki/Altered_Collarbone",
+      "implementationStatus": "reference-only",
+      "currentDefault": true,
+      "usage": {
+        "simulatorSupport": "reference-only",
+        "targetTypes": [
+          "jewellery"
+        ],
+        "inputRarities": [
+          "rare"
+        ],
+        "maximumItemLevel": null,
+        "minimumModifierLevel": 0,
+        "addsUnrevealedDesecratedModifier": true,
+        "usageNoteZh": "由创生之树相关内容获得。公开资料未给出“异界词缀”精确出现概率，因此只展示规则，不伪造模拟权重。"
+      }
+    }
+  ]
+}

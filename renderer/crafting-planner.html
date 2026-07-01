@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' app:; script-src 'self' app:; style-src 'self' app: 'unsafe-inline'; img-src 'self' app: data:; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>PoE2 严格做装模拟器</title>
+  <link rel="stylesheet" href="app://local/tool.css">
+  <style>
+    .data-gate{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
+    .data-gate h2{margin:0 0 7px}.data-gate p{margin:0;line-height:1.7;color:var(--muted)}
+    .disabled-panel{opacity:.55;pointer-events:none;filter:grayscale(.15)}
+    .catalog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+    .currency-card{border:1px solid var(--border-soft);border-radius:12px;padding:14px;background:rgba(4,16,29,.58)}
+    .currency-card h3{margin:0 0 4px}.currency-card p{line-height:1.65;margin:10px 0}
+    .restriction-list{display:flex;flex-wrap:wrap;gap:6px}.restriction-list span{font-size:11px;border:1px solid var(--border-soft);padding:4px 7px;border-radius:999px;color:#b9cce1}
+    .progress-text{font-size:12px;color:var(--muted);margin-top:7px}.strict-note{font-weight:700;color:#ffd777}
+    .reveal-panel{border-top:1px solid var(--border-soft);padding-top:16px}.reveal-options{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end}
+    .base-detail,.mechanic-note{border:1px solid var(--border-soft);border-radius:12px;padding:13px;background:rgba(5,22,38,.62);line-height:1.7}
+    .base-detail strong,.mechanic-note strong{color:#d9ecff}.mechanic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px}
+    .mechanic-card{border:1px solid var(--border-soft);border-radius:12px;padding:14px;background:rgba(4,16,29,.58)}
+    .mechanic-card h3{margin:0 0 8px}.mechanic-card ul{margin:8px 0 0;padding-left:20px;line-height:1.7}.selector-detail{margin-top:10px;min-height:84px}
+    .current-badge{display:inline-flex;border:1px solid #3e7a64;color:#a9f1d0;border-radius:999px;padding:3px 8px;font-size:11px;margin-left:7px}
+    .fallback-badge{border-color:#7c6b48;color:#f0d8a3}.chronicle-copy{margin:10px 0;padding:10px 12px;border-left:3px solid #3e7a64;border-radius:8px;background:rgba(14,52,43,.32);line-height:1.7;color:#d9f3e8}.chronicle-copy div+div{margin-top:4px}
+    .state-machine-panel{position:relative;overflow:hidden;border:1px solid rgba(82,138,214,.22);box-shadow:0 16px 40px rgba(6,20,38,.18)}
+    .state-machine-panel::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,77,129,.12),rgba(17,33,54,0));pointer-events:none}
+    .state-machine-toolbar{display:grid;grid-template-columns:minmax(240px,1.1fr) minmax(180px,.9fr) minmax(220px,.9fr);gap:16px;align-items:stretch}
+    .state-machine-box{border:1px solid var(--border-soft);border-radius:14px;background:rgba(7,24,43,.72);padding:14px}
+    .state-machine-box label{font-weight:600}
+    .state-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.state-chip{border:1px solid var(--border-soft);border-radius:999px;padding:5px 9px;font-size:12px;color:#c9def3;background:rgba(255,255,255,.02)}
+    .subtle-section{background:rgba(3,11,21,.42);border:1px solid rgba(114,140,172,.16);border-radius:16px;padding:16px}.operation-detail{margin-top:10px;min-height:58px;font-size:12px;line-height:1.65}.conditional-control[hidden]{display:none}.catalog-tools{display:grid;grid-template-columns:minmax(240px,1fr) minmax(180px,240px);gap:10px;width:min(100%,640px)}.catalog-meta{margin:0 0 12px}.catalog-category{display:inline-flex;margin-bottom:8px;border:1px solid var(--border-soft);border-radius:999px;padding:3px 8px;font-size:11px;color:var(--muted)}.reference-details>summary{cursor:pointer;list-style:none;padding:18px 20px;font-size:20px;font-weight:800}.reference-details>summary::-webkit-details-marker{display:none}.reference-details>summary::after{content:'展开';float:right;font-size:12px;color:var(--muted);font-weight:600}.reference-details[open]>summary::after{content:'收起'}.reference-body{padding:0 20px 20px}
+    @media (max-width: 960px){.state-machine-toolbar{grid-template-columns:1fr}.catalog-tools{grid-template-columns:1fr;width:100%}}
+  </style>
+  <link rel="stylesheet" href="app://local/light-theme.css">
+</head>
+<body class="crafting-page">
+<main class="shell">
+  <header class="hero">
+    <div>
+      <div class="eyebrow">POE2 正则 · 交易 · 做装 · v1.8.0</div>
+      <h1>严格底材词缀池与通货状态机</h1>
+      <p>每个词缀只属于数据中的精确底材编号。没有通过完整快照校验时，模拟器会停止运行，不再回退到通用标签或演示词缀。界面、底材、词缀、通货和结果均使用简体中文显示。</p>
+    </div>
+    <span class="badge">严格底材分池</span>
+  </header>
+
+  <section class="card section">
+    <div class="card-body data-gate">
+      <div>
+        <h2 id="dataStatusTitle">正在读取严格数据</h2>
+        <p id="sourceBox">请稍候。</p>
+        <div id="updateProgress" class="progress-text"></div>
+      </div>
+      <button id="updateDataButton" class="btn primary" type="button">更新严格词缀数据</button>
+    </div>
+  </section>
+
+  <div id="craftWorkspace" class="grid">
+    <section class="card input-card">
+      <div class="card-header"><h2>当前物品状态</h2><button class="btn small" id="importClipboardButton" type="button">从剪贴板导入物品</button></div>
+      <div class="card-body">
+        <div class="row four section">
+          <div><label>精确词缀池（决定可出现词缀与概率）</label><select id="baseSelect"></select></div>
+          <div><label>具体基底（决定基础属性、需求与固有词缀）</label><select id="concreteBaseSelect"></select></div>
+          <div><label>物品等级</label><input id="itemLevelInput" type="number" min="1" max="100" value="82"></div>
+          <div><label>稀有度</label><select id="raritySelect"><option value="normal">普通</option><option value="magic">魔法</option><option value="rare" selected>稀有</option></select></div>
+        </div>
+        <div id="concreteBaseDetails" class="base-detail section">正在读取具体基底信息。</div>
+        <div class="row section">
+          <div><label>当前前缀总数（含未知词缀）</label><input id="prefixCountInput" type="number" min="0" max="3" value="0"></div>
+          <div><label>当前后缀总数（含未知词缀）</label><input id="suffixCountInput" type="number" min="0" max="3" value="0"></div>
+        </div>
+
+        <div class="section">
+          <div class="section-title"><strong>已确认存在的词缀</strong><span class="help" id="existingCount">0 项</span></div>
+          <div class="existing-editor">
+            <div><label>词缀</label><select id="existingModifierPicker"></select></div>
+            <div><label>T 级</label><select id="existingTierPicker"></select></div>
+            <button id="addExistingButton" class="btn" type="button">加入当前物品</button>
+          </div>
+          <div id="existingAffixList" class="affix-list"></div>
+          <div class="help">确认词缀会参与词缀组冲突和目标判断。无法确认的词缀只计入上方前缀/后缀总数。</div>
+        </div>
+
+        <div class="section">
+          <div class="section-title"><strong>目标词缀与最低 T 级</strong><span class="help" id="targetCount">0 项</span></div>
+          <input id="modSearch" placeholder="搜索当前精确底材池中的词缀" style="margin-bottom:10px">
+          <div id="targetList" class="check-list"></div>
+        </div>
+
+        <div class="section">
+          <div class="section-title"><strong>制作成本参数（手动输入，统一折算为 e）</strong><button id="savePricesButton" class="btn small" type="button">保存</button></div>
+          <div id="priceInputs" class="row four"></div>
+        </div>
+        <div class="row section"><div><label>路径模拟次数</label><input id="trialsInput" type="number" min="100" max="100000" value="20000"></div></div>
+        <div class="actions"><button id="analyzeButton" class="btn primary" type="button">计算概率与基础路径</button></div>
+        <div id="formMessage"></div>
+      </div>
+    </section>
+
+    <aside class="card analysis-sidebar">
+      <div class="card-header"><h2>分析结果</h2><span id="bestBadge" class="badge">等待计算</span></div>
+      <div class="card-body">
+        <div class="section"><div class="section-title"><strong>下一次基础通货命中目标</strong></div><div id="nextRollTable" class="table-wrap"><div class="help">选择目标后开始计算。</div></div></div>
+        <div class="section"><div class="section-title"><strong>基础路径估算</strong></div><div id="strategyTable" class="table-wrap"></div></div>
+        <div id="analysisWarnings"></div>
+      </div>
+    </aside>
+  </div>
+
+  <section id="stateMachineSection" class="card section state-machine-panel" style="margin-top:18px">
+    <div class="card-header">
+      <div><h2>单步做装状态机</h2><div class="help">基础通货、亵渎祭坛骨材、精华、合金、符文与灵魂核心使用同一份连续物品状态。切换预兆或操作类型不会清空当前物品。</div></div>
+      <span id="stateBadge" class="badge">尚未创建状态</span>
+    </div>
+    <div class="card-body">
+      <div id="stateMachineDisabled"></div>
+      <div class="state-machine-toolbar section">
+        <div class="state-machine-box"><label>激活预兆（可多选）</label><select id="omenSelect" multiple size="6"></select><div class="state-chip-row"><span class="state-chip">切换预兆不清空物品</span><span class="state-chip">支持持续做装</span></div></div>
+        <div class="state-machine-box">
+          <label>做装操作类型</label>
+          <select id="operationKindSelect">
+            <option value="currency">基础通货</option>
+            <option value="desecrate">亵渎祭坛：深渊骨材</option>
+            <option value="essence">精华</option>
+            <option value="socketable">符文 / 灵魂核心 / 合金</option>
+          </select>
+          <label style="margin-top:10px">具体操作</label><select id="currencySelect"></select>
+          <div id="augmentControls" class="conditional-control" hidden>
+            <div class="row" style="margin-top:10px"><div><label>增幅器插槽容量</label><input id="augmentSocketCapacityInput" type="number" min="0" max="12" value="1"></div><div><label>使用插槽</label><select id="augmentSlotSelect"><option value="0">插槽 1</option></select></div></div>
+          </div>
+          <label style="margin-top:10px">随机种子</label><input id="seedInput" type="number" value="11001">
+          <div id="operationDetails" class="base-detail operation-detail">请选择操作。</div>
+        </div>
+        <div class="state-machine-box"><label>操作</label><div class="actions vertical"><button id="createStateButton" class="btn" type="button">从当前表单创建状态</button><button id="previewCurrencyButton" class="btn" type="button">预览操作结果</button><button id="applyCurrencyButton" class="btn primary" type="button">执行一次操作</button><button id="resetStateButton" class="btn danger" type="button">重置实验状态</button></div></div>
+      </div>
+      <div class="state-grid">
+        <div><div class="section-title"><strong>当前物品状态</strong><span class="help" id="stateCounts"></span></div><div id="stateView" class="state-view"><div class="help">先创建状态。</div></div></div>
+        <div><div class="section-title"><strong>操作可用性与结果</strong><span class="help" id="outcomeMeta"></span></div><div id="currencyMessage"></div><div id="outcomeTable" class="table-wrap"></div></div>
+      </div>
+      <div class="section reveal-panel subtle-section">
+        <div class="section-title"><strong>亵渎词缀揭示</strong><span class="help">同一随机种子生成三个选项；深渊回响预兆可重骰一次。</span></div>
+        <div class="row three">
+          <div><label>未揭示词缀</label><select id="revealInstanceSelect"><option value="">当前没有未揭示词缀</option></select></div>
+          <div><label>揭示选项</label><select id="revealOptionSelect"><option value="">先预览选项</option></select></div>
+          <div><label>操作</label><div class="actions vertical"><button id="previewRevealButton" class="btn" type="button">生成三个揭示选项</button><button id="rerollRevealButton" class="btn" type="button" disabled>重骰一次</button><button id="applyRevealButton" class="btn primary" type="button" disabled>选择并揭示</button></div></div>
+        </div>
+        <div id="revealMessage"></div>
+      </div>
+
+      <div id="currentBaseAvailabilitySection" class="section subtle-section">
+        <div class="section-title"><strong>当前底材可用项目</strong><span class="help">只筛选与当前精确底材池匹配的精华和插槽强化物；完整目录见下方“通货作用与使用限制”。</span></div>
+        <div class="row three">
+          <div><label>当前底材可用精华</label><select id="essenceSelect"></select><div id="essenceDetails" class="base-detail selector-detail"></div></div>
+          <div><label>当前底材可用符文 / 灵魂核心 / 其他插槽强化物</label><select id="socketableSelect"></select><div id="socketableDetails" class="base-detail selector-detail"></div></div>
+          <div><label>深渊骨材扩展资料</label><label class="check-row"><input id="showLegacyBones" type="checkbox"> 显示啃噬骨材、停用材料与仅供参考的当前资料项</label><div class="mechanic-note selector-detail"><strong>概率说明：</strong>力量/敏捷/智慧等精确池不同，词缀与概率不同；同一精确池内的大多数普通具体基底共享随机显式词缀池与基础权重，但特殊固有词缀、前后缀槽位变化、附魔或来源专属限制会改变完整做装路线的最终概率。精华保证词缀和符文兼容性仍按来源底材 ID 单独匹配。</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card section" style="margin-top:18px">
+    <div class="card-header">
+      <div><h2>通货作用与使用限制</h2><div class="help">基础通货、亵渎材料、全部精华、全部符文 / 灵魂核心 / 其他插槽强化物及全部预兆统一展示；不包含市场价格。</div></div>
+      <div class="catalog-tools">
+        <input id="currencySearch" placeholder="搜索名称、作用或限制">
+        <select id="currencyCategoryFilter" aria-label="目录分类">
+          <option value="all">全部分类</option>
+          <option value="currency">基础通货与机制通货</option>
+          <option value="abyssal-bone">亵渎材料</option>
+          <option value="essence">精华</option>
+          <option value="socketable">符文与插槽强化物</option>
+          <option value="omen">预兆</option>
+        </select>
+      </div>
+    </div>
+    <div class="card-body"><div id="currencyCatalogMeta" class="help catalog-meta"></div><div id="currencyCatalog" class="catalog-grid"></div></div>
+  </section>
+
+  <section id="seasonMechanicsSection" class="card section" style="margin-top:18px">
+    <details class="reference-details">
+      <summary>补丁机制与数据来源（仅供查阅）</summary>
+      <div class="reference-body">
+        <div class="help" style="margin-bottom:14px">精华、符文、灵魂核心、合金、亵渎材料和预兆的完整资料已统一整合进上方通货目录；这里仅保留补丁机制说明。</div>
+        <div id="mechanicsOverview" class="mechanic-grid"></div>
+      </div>
+    </details>
+  </section>
+</main>
+<script src="app://local/crafting-planner.js"></script>
+</body>
+</html>

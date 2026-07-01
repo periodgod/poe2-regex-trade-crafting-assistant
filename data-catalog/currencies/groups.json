@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": "2026-06-18",
+  "groups": [
+    {
+      "id": "currency_tab",
+      "nameZh": "核心通货页",
+      "nameEn": "Currency Tab",
+      "poe2dbCount": 37,
+      "bundledCount": 37,
+      "purpose": "基础品质、稀有度、加减词缀、数值重掷、腐化与插槽"
+    },
+    {
+      "id": "stackable_currency",
+      "nameZh": "可堆叠通货物品",
+      "nameEn": "Stackable Currency Item",
+      "poe2dbCount": 144,
+      "bundledCount": 37,
+      "purpose": "包含核心通货与赛季/机制专属可堆叠物品；完整条目由快照更新器下载"
+    },
+    {
+      "id": "essence",
+      "nameZh": "精华",
+      "nameEn": "Essence",
+      "poe2dbCount": 95,
+      "bundledCount": 0,
+      "purpose": "定向保证某类词缀；完整条目由 essences.csv 快照提供"
+    },
+    {
+      "id": "catalyst",
+      "nameZh": "催化剂",
+      "nameEn": "Catalyst",
+      "poe2dbCount": 26,
+      "bundledCount": 26,
+      "purpose": "提升珠宝品质并偏向对应属性类别；完整条目由快照提供",
+      "notice": "英文页 26 项；简体中文页当前 24 项，差异按本地化滞后处理。"
+    },
+    {
+      "id": "splinter",
+      "nameZh": "碎片",
+      "nameEn": "Splinter",
+      "poe2dbCount": 4,
+      "bundledCount": 4,
+      "purpose": "合成相应完整通货或机制物品"
+    }
+  ]
+}

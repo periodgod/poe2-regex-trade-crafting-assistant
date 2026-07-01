@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": "2026-06-18-v1.6.4",
+  "generatedAt": "2026-06-18T00:00:00.000Z",
+  "game": "Path of Exile 2",
+  "files": {
+    "equipmentClasses": "equipment/classes.json",
+    "coreCurrencies": "currencies/core.json",
+    "currencyGroups": "currencies/groups.json",
+    "coreModifierFamilies": "modifiers/core-families.json",
+    "modifierSources": "modifiers/sources.json",
+    "catalysts": "currencies/catalysts.json",
+    "splinters": "currencies/splinters.json",
+    "abyssalBones": "currencies/abyssal-bones.json"
+  },
+  "status": {
+    "coreCurrencies": "complete-37-of-37",
+    "equipmentClassIndex": "complete-category-index",
+    "fullAffixSnapshot": "download-on-demand",
+    "probabilityReadyOnlyAfterSnapshotValidation": true,
+    "catalysts": "complete-26-of-26",
+    "splinters": "complete-4-of-4",
+    "currencyUsageRestrictions": "complete-78-of-78",
+    "abyssalBones": "complete-11-of-11"
+  }
+}

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' app:; script-src 'self' app:; style-src 'self' app: 'unsafe-inline'; img-src 'self' app: data: https:; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>POE 多区服集市项目包监控</title>
+  <link rel="stylesheet" href="app://local/market-monitor.css">
+  <link rel="stylesheet" href="app://local/light-theme.css">
+</head>
+<body class="market-page">
+  <main class="market-shell">
+    <header class="market-hero">
+      <div>
+        <div class="eyebrow">MULTI REALM MARKET WATCH · v1.9.0</div>
+        <h1>四区服集市实时监控</h1>
+        <p>支持流放2国服、流放2国际服、流放1国服、流放1国际服。一个物品做成一个“监控项目包”，右侧勾选后串行轮流监控，避免同一个账号/同一 IP 同时刷新多个搜索导致 429。</p>
+      </div>
+      <div class="hero-actions">
+        <button id="addProjectButton" class="btn primary" type="button">添加为监控项目</button>
+        <button id="testButton" class="btn" type="button">测试当前项目</button>
+        <button id="startSelectedButton" class="btn primary" type="button">启动勾选项目包</button>
+        <button id="stopButton" class="btn danger" type="button" disabled>停止</button>
+      </div>
+    </header>
+
+    <section id="statusBanner" class="status-banner">尚未开始监控。</section>
+
+    <section class="market-grid project-grid">
+      <section class="card config-card">
+        <div class="card-header">
+          <div>
+            <h2>当前项目配置</h2>
+            <p>Cookie 只在当前页面使用，不会保存进项目包；链接会自动识别四区服。</p>
+          </div>
+          <button id="clearFormButton" class="btn small" type="button">清空</button>
+        </div>
+        <div class="card-body">
+          <div class="form-grid three">
+            <label>默认区服
+              <select id="serverSelect">
+                <option value="poe2-cn" selected>流放2 国服</option>
+                <option value="poe2-intl">Path of Exile 2 国际服</option>
+                <option value="poe1-cn">流放1 国服</option>
+                <option value="poe1-intl">Path of Exile 1 国际服</option>
+              </select>
+            </label>
+            <label>监控名称
+              <input id="projectNameInput" type="text" maxlength="80" placeholder="例如：奥杜尔秘符 20D 内">
+            </label>
+            <label>抓取前 N 条
+              <input id="maxFetchInput" type="number" min="1" max="50" step="1" value="10">
+            </label>
+          </div>
+          <div id="serverHint" class="notice-box compact">当前区服：流放2 国服。</div>
+          <label>官方集市链接
+            <textarea id="tradeUrlInput" rows="3" placeholder="https://poe.game.qq.com/trade2/search/poe2/奥杜尔秘符/40o7WjEt9"></textarea>
+          </label>
+          <label>批量快速添加，一行一个链接
+            <textarea id="bulkUrlsInput" rows="4" placeholder="可空；如果这里填写多行链接，点击添加时会拆成多个独立项目包；可以混合四区服链接"></textarea>
+          </label>
+          <label>登录 Cookie / POESESSID，401 或 403 时填写
+            <textarea id="sessionCookieInput" rows="3" placeholder="F12 → Network → api/trade/search 或 fetch → Request Headers → 复制 Cookie 整行内容。不要把 Cookie 发给别人。"></textarea>
+            <span id="cookieHint" class="field-help">仅本次会话使用，不保存。</span>
+          </label>
+          <div class="form-grid three">
+            <label>检查间隔，秒
+              <input id="intervalInput" type="number" min="60" max="3600" step="5" value="90">
+            </label>
+          </div>
+          <div class="form-grid three">
+            <label>通货类型，可多选
+              <select id="currencySelect" multiple size="7">
+                <option value="any" selected>任意通货</option>
+                <option value="divine">神圣石 Divine</option>
+                <option value="exalted">崇高石 Exalted</option>
+                <option value="chaos">混沌石 Chaos</option>
+                <option value="mirror">卡兰德的魔镜</option>
+                <option value="chance">机会石 Chance</option>
+                <option value="regal">富豪石 Regal</option>
+                <option value="vaal">瓦尔宝珠 Vaal</option>
+                <option value="alchemy">点金石 Alchemy</option>
+                <option value="annulment">剥离石 Annulment</option>
+                <option value="alteration">改造石 Alteration</option>
+                <option value="augmentation">增幅石 Augmentation</option>
+                <option value="transmutation">蜕变石 Transmutation</option>
+                <option value="scouring">重铸石 Scouring</option>
+                <option value="fusing">链接石 Fusing</option>
+                <option value="jewellers">珠宝匠石 Jeweller</option>
+                <option value="chromatic">幻色石 Chromatic</option>
+                <option value="blessed">祝福石 Blessed</option>
+                <option value="regret">后悔石 Regret</option>
+                <option value="gemcutters-prism">宝石匠的棱镜 GCP</option>
+                <option value="ancient-orb">远古石 Ancient</option>
+                <option value="lesser-jewellers-orb">低阶珠宝匠石</option>
+                <option value="greater-jewellers-orb">高阶珠宝匠石</option>
+                <option value="perfect-jewellers-orb">完美珠宝匠石</option>
+              </select>
+            </label>
+            <label>全局最低价格
+              <input id="minPriceInput" type="number" min="0" step="0.01" placeholder="留空不限">
+            </label>
+            <label>全局最高价格
+              <input id="maxPriceInput" type="number" min="0" step="0.01" placeholder="留空不限">
+            </label>
+          </div>
+          <details class="advanced-box" open>
+            <summary>按通货分别设置价格区间</summary>
+            <p class="muted">勾选后优先使用这里的价格区间；例如神圣石 1–30、崇高石 50–200。</p>
+            <div id="priceRangeRows" class="price-range-rows"></div>
+          </details>
+          <div class="option-strip wrap">
+            <label class="checkline"><input id="pricedOnlyInput" type="checkbox" checked> 只显示标价</label>
+            <label class="checkline"><input id="exactOnlyInput" type="checkbox"> 仅精确标价</label>
+            <label class="checkline"><input id="onlineOnlyInput" type="checkbox"> 只显示在线私聊商家，商人页签交易不要开</label>
+            <label class="checkline"><input id="notifyInput" type="checkbox" checked> 桌面提醒</label>
+            <label class="checkline"><input id="autoCopyInput" type="checkbox"> 命中后复制第一条物品信息</label>
+            <label class="checkline"><input id="autoOpenInput" type="checkbox"> 命中后打开对应集市页</label>
+          </div>
+          <div class="notice-box">多个项目包会进入一个串行队列：同一时间只刷新一个项目；四区服混合时也不会并发请求，遇到 429 会暂停所有项目包等待恢复。</div>
+        </div>
+      </section>
+
+      <aside class="card monitor-list-card">
+        <div class="card-header">
+          <div>
+            <h2>监控项目包</h2>
+            <p>勾选需要监控的包后启动。</p>
+          </div>
+          <div class="project-actions">
+            <button id="selectAllButton" class="btn small" type="button">全选</button>
+            <button id="clearProjectsButton" class="btn small danger" type="button">清空项目</button>
+          </div>
+        </div>
+        <div id="projectList" class="monitor-list"></div>
+      </aside>
+    </section>
+
+    <section class="telemetry-row">
+      <div class="metric"><span>状态</span><strong id="runState">未开始</strong></div>
+      <div class="metric"><span>检查次数</span><strong id="checkCount">0</strong></div>
+      <div class="metric"><span>本次抓取</span><strong id="fetchedCount">0</strong></div>
+      <div class="metric"><span>命中数量</span><strong id="matchedCount">0</strong></div>
+      <div class="metric wide"><span>最后检查</span><strong id="lastChecked">-</strong></div>
+    </section>
+
+    <section class="card result-card">
+      <div class="card-header">
+        <div>
+          <h2>监控结果</h2>
+          <p id="resultSummary">等待检查。</p>
+        </div>
+        <button id="clearResultsButton" class="btn" type="button">清空结果</button>
+      </div>
+      <div id="errorBox" class="error-box hidden"></div>
+      <div id="resultList" class="result-list empty">暂无结果</div>
+    </section>
+  </main>
+  <script src="app://local/market-monitor.js"></script>
+</body>
+</html>

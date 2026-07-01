@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>POE2 集市实时监控网页测试版</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">POE2 Trade Monitor · Web Prototype</p>
+        <h1>集市实时监控网页测试版</h1>
+        <p class="sub">按“项目包”管理多个物品：先填写链接、价格、通货和动作设置，点击添加形成一个监控包，再勾选需要的包一起开始监控。</p>
+      </div>
+      <div class="status-card">
+        <span class="dot" id="serverDot"></span>
+        <div>
+          <strong id="serverStatus">检测本地服务中</strong>
+          <small>本地代理用于绕过浏览器 CORS 限制</small>
+        </div>
+      </div>
+    </header>
+
+    <section class="grid two">
+      <article class="card config-card">
+        <div class="card-title-row">
+          <div>
+            <h2>监控配置</h2>
+            <p>粘贴国服官方集市搜索结果页链接；国服接口需要登录态时，请填写 Cookie。</p>
+          </div>
+          <button class="ghost" id="clearBtn">清空</button>
+        </div>
+
+        <label class="field span2">
+          <span>当前项目的官方集市链接</span>
+          <input id="tradeUrl" placeholder="https://poe.game.qq.com/trade2/search/poe2/奥杜尔秘符/YBORoROFY" />
+        </label>
+
+        <label class="field span2">
+          <span>国服登录 Cookie，401 时填写；不会保存到预设</span>
+          <textarea id="sessionCookie" rows="3" placeholder="在浏览器已登录 poe.game.qq.com 后，F12 → Network → 刷新集市页 → 点 api/trade2/search 或 api/trade2/fetch → Request Headers → 复制 Cookie 整行内容"></textarea>
+          <small class="field-help">只发给本机 127.0.0.1 代理转发到国服接口；不写入保存的监控项。不要把 Cookie 发给别人。</small>
+        </label>
+
+        <div class="form-grid">
+          <label class="field">
+            <span>监控名称</span>
+            <input id="watchName" placeholder="例如：低价完美珠宝匠石" />
+          </label>
+
+          <label class="field">
+            <span>通货类型</span>
+            <select id="currency">
+              <option value="any">任意通货</option>
+              <option value="divine">神圣石 Divine</option>
+              <option value="exalted">崇高石 Exalted</option>
+              <option value="chaos">混沌石 Chaos</option>
+              <option value="chance">机会石 Chance</option>
+              <option value="regal">富豪石 Regal</option>
+              <option value="vaal">瓦尔宝珠 Vaal</option>
+              <option value="alchemy">点金石 Alchemy</option>
+              <option value="annulment">剥离石 Annulment</option>
+              <option value="lesser-jewellers-orb">低阶珠宝匠石</option>
+              <option value="greater-jewellers-orb">高阶珠宝匠石</option>
+              <option value="perfect-jewellers-orb">完美珠宝匠石</option>
+              <option value="gemcutters-prism">宝石匠的棱镜</option>
+              <option value="mirror">卡兰德的魔镜</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>最低价格</span>
+            <input id="minPrice" type="number" min="0" step="0.01" placeholder="留空不限" />
+          </label>
+
+          <label class="field">
+            <span>最高价格</span>
+            <input id="maxPrice" type="number" min="0" step="0.01" placeholder="留空不限" />
+          </label>
+
+          <label class="field">
+            <span>每次检查前 N 条</span>
+            <input id="limit" type="number" min="1" max="50" value="10" />
+          </label>
+
+          <label class="field">
+            <span>检查间隔，秒</span>
+            <input id="intervalSec" type="number" min="10" value="30" />
+          </label>
+        </div>
+
+        <div class="switch-grid">
+          <label class="switch"><input id="onlineOnly" type="checkbox"><span></span>只显示在线私聊商家（页签交易请关闭）</label>
+          <label class="switch"><input id="pricedOnly" type="checkbox" checked><span></span>只显示标价物品</label>
+          <label class="switch"><input id="exactOnly" type="checkbox"><span></span>仅精确标价</label>
+          <label class="switch"><input id="notifyDesktop" type="checkbox" checked><span></span>命中后桌面提醒</label>
+          <label class="switch"><input id="autoCopy" type="checkbox"><span></span>命中后复制第一条物品信息</label>
+          <label class="switch"><input id="autoHideout" type="checkbox"><span></span>命中后发送前往藏身处点击任务</label>
+          <label class="switch"><input id="autoOpen" type="checkbox"><span></span>命中后打开官方页面</label>
+        </div>
+
+        <div class="actions">
+          <button id="saveBtn" class="lime">添加为监控项目</button>
+          <button id="testBtn" class="primary">测试当前项目</button>
+          <button id="mockBtn" class="secondary">加载模拟数据</button>
+          <button id="startBtn" class="ghost">临时启动当前项目</button>
+          <button id="stopBtn" class="danger" disabled>停止</button>
+        </div>
+      </article>
+
+      <aside class="card side-card">
+        <h2>保存的监控项</h2>
+        <p>保存多个价格条件，快速切换测试。</p>
+        <div class="save-row">
+          <button id="saveBtn" class="secondary full">保存当前配置</button>
+        </div>
+        <div id="savedList" class="saved-list empty">暂无保存项</div>
+      </aside>
+    </section>
+
+    <section class="card telemetry">
+      <div class="metric">
+        <span>状态</span>
+        <strong id="runState">未开始</strong>
+      </div>
+      <div class="metric">
+        <span>检查次数</span>
+        <strong id="checkCount">0</strong>
+      </div>
+      <div class="metric">
+        <span>本次抓取</span>
+        <strong id="fetchedCount">0</strong>
+      </div>
+      <div class="metric">
+        <span>命中数量</span>
+        <strong id="matchedCount">0</strong>
+      </div>
+      <div class="metric wide">
+        <span>最后检查</span>
+        <strong id="lastChecked">-</strong>
+      </div>
+    </section>
+
+    <section class="card results-card">
+      <div class="card-title-row">
+        <div>
+          <h2>监控结果</h2>
+          <p id="resultHint">命中结果会显示在这里。建议先添加项目包，再勾选项目包启动监控；商人页签交易可发送“前往藏身处”点击任务。</p>
+        </div>
+        <button class="ghost" id="clearResultsBtn">清空结果</button>
+      </div>
+      <div id="errorBox" class="error hidden"></div>
+      <div id="resultList" class="result-list empty">暂无结果</div>
+    </section>
+
+    <section class="card notes">
+      <h2>当前版本边界</h2>
+      <p>这个网页以“项目包”为单位监控：每个包保存链接、通货价格区间、筛选条件和动作设置。Cookie 只在当前页面使用，不会写入项目包；不会自动购买，不会确认商人页签交易。</p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

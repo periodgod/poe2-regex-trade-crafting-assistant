@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": "2026-06-18",
+  "recordCount": 4,
+  "source": {
+    "name": "PoE2DB Stackable Currency / Splinter Item",
+    "confidence": "high-for-name-and-stack-size"
+  },
+  "records": [
+    {
+      "id": "breach_splinter",
+      "nameZh": "裂隙碎片",
+      "nameEn": "Breach Splinter",
+      "kind": "splinter",
+      "stackSize": 300,
+      "effectZh": "裂隙机制碎片；达到堆叠上限后用于形成对应的完整机制物品。",
+      "targets": [
+        "mechanic_fragment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "usage": {
+        "requiresUncorrupted": false,
+        "requiresUnmirrored": false,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "mechanic_fragment"
+        ],
+        "notAppliedToItem": true,
+        "combineAtStackSize": 300,
+        "usageNoteZh": "不是装备制作通货；收集并堆叠至 300 个后形成或用于对应机制物品。"
+      }
+    },
+    {
+      "id": "simulacrum_splinter",
+      "nameZh": "梦魇拟像裂片",
+      "nameEn": "Simulacrum Splinter",
+      "kind": "splinter",
+      "stackSize": 300,
+      "effectZh": "惊悸迷雾机制碎片；达到堆叠上限后用于形成对应的完整机制物品。",
+      "targets": [
+        "mechanic_fragment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "usage": {
+        "requiresUncorrupted": false,
+        "requiresUnmirrored": false,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "mechanic_fragment"
+        ],
+        "notAppliedToItem": true,
+        "combineAtStackSize": 300,
+        "usageNoteZh": "不是装备制作通货；收集并堆叠至 300 个后形成或用于对应机制物品。"
+      }
+    },
+    {
+      "id": "petition_splinter",
+      "nameZh": "请愿碎片",
+      "nameEn": "Petition Splinter",
+      "kind": "splinter",
+      "stackSize": 300,
+      "effectZh": "驱灵仪式机制碎片；达到堆叠上限后用于形成对应的完整机制物品。",
+      "targets": [
+        "mechanic_fragment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "usage": {
+        "requiresUncorrupted": false,
+        "requiresUnmirrored": false,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "mechanic_fragment"
+        ],
+        "notAppliedToItem": true,
+        "combineAtStackSize": 300,
+        "usageNoteZh": "不是装备制作通货；收集并堆叠至 300 个后形成或用于对应机制物品。"
+      }
+    },
+    {
+      "id": "runic_splinter",
+      "nameZh": "符文碎片",
+      "nameEn": "Runic Splinter",
+      "kind": "splinter",
+      "stackSize": 300,
+      "effectZh": "先祖秘藏机制碎片；达到堆叠上限后用于形成对应的完整机制物品。",
+      "targets": [
+        "mechanic_fragment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "usage": {
+        "requiresUncorrupted": false,
+        "requiresUnmirrored": false,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "mechanic_fragment"
+        ],
+        "notAppliedToItem": true,
+        "combineAtStackSize": 300,
+        "usageNoteZh": "不是装备制作通货；收集并堆叠至 300 个后形成或用于对应机制物品。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,716 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": "2026-06-18",
+  "recordCount": 26,
+  "source": {
+    "name": "PoE2DB Stackable Currency / Catalyst Item",
+    "confidence": "high-for-name-and-effect",
+    "notice": "英文索引列出 26 项；简体中文索引当前显示 24 项，两个 Necrotic 条目使用暂译并保留英文名作为稳定键。"
+  },
+  "records": [
+    {
+      "id": "flesh_catalyst",
+      "nameZh": "血肉催化剂",
+      "nameEn": "Flesh Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "life",
+      "targets": [
+        "ring",
+        "amulet"
+      ],
+      "effectZh": "为戒指或项链添加提升生命类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "ring",
+          "amulet"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "life",
+        "usageNoteZh": "只能用于戒指或项链；添加强化“life”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "refined_flesh_catalyst",
+      "nameZh": "精炼血肉催化剂",
+      "nameEn": "Refined Flesh Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "life",
+      "targets": [
+        "jewel"
+      ],
+      "effectZh": "为珠宝添加提升生命类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "jewel"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "life",
+        "usageNoteZh": "只能用于珠宝；添加强化“life”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "neural_catalyst",
+      "nameZh": "神经催化剂",
+      "nameEn": "Neural Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "mana",
+      "targets": [
+        "ring",
+        "amulet"
+      ],
+      "effectZh": "为戒指或项链添加提升魔力类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "ring",
+          "amulet"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "mana",
+        "usageNoteZh": "只能用于戒指或项链；添加强化“mana”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "refined_neural_catalyst",
+      "nameZh": "精炼神经催化剂",
+      "nameEn": "Refined Neural Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "mana",
+      "targets": [
+        "jewel"
+      ],
+      "effectZh": "为珠宝添加提升魔力类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "jewel"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "mana",
+        "usageNoteZh": "只能用于珠宝；添加强化“mana”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "carapace_catalyst",
+      "nameZh": "甲壳催化剂",
+      "nameEn": "Carapace Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "defences",
+      "targets": [
+        "ring",
+        "amulet"
+      ],
+      "effectZh": "为戒指或项链添加提升护甲、闪避和能量护盾词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "ring",
+          "amulet"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "defences",
+        "usageNoteZh": "只能用于戒指或项链；添加强化“defences”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "refined_carapace_catalyst",
+      "nameZh": "精炼甲壳催化剂",
+      "nameEn": "Refined Carapace Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "defences",
+      "targets": [
+        "jewel"
+      ],
+      "effectZh": "为珠宝添加提升护甲、闪避和能量护盾词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "jewel"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "defences",
+        "usageNoteZh": "只能用于珠宝；添加强化“defences”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "uul_netol_catalyst",
+      "nameZh": "乌尔尼多催化剂",
+      "nameEn": "Uul-Netol's Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "physical",
+      "targets": [
+        "ring",
+        "amulet"
+      ],
+      "effectZh": "为戒指或项链添加提升物理类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "ring",
+          "amulet"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "physical",
+        "usageNoteZh": "只能用于戒指或项链；添加强化“physical”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "refined_uul_netol_catalyst",
+      "nameZh": "精炼乌尔尼多催化剂",
+      "nameEn": "Refined Uul-Netol's Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "physical",
+      "targets": [
+        "jewel"
+      ],
+      "effectZh": "为珠宝添加提升物理类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "jewel"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "physical",
+        "usageNoteZh": "只能用于珠宝；添加强化“physical”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "xoph_catalyst",
+      "nameZh": "索伏催化剂",
+      "nameEn": "Xoph's Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "fire",
+      "targets": [
+        "ring",
+        "amulet"
+      ],
+      "effectZh": "为戒指或项链添加提升火焰类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "ring",
+          "amulet"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "fire",
+        "usageNoteZh": "只能用于戒指或项链；添加强化“fire”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "refined_xoph_catalyst",
+      "nameZh": "精炼索伏催化剂",
+      "nameEn": "Refined Xoph's Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "fire",
+      "targets": [
+        "jewel"
+      ],
+      "effectZh": "为珠宝添加提升火焰类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "jewel"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "fire",
+        "usageNoteZh": "只能用于珠宝；添加强化“fire”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "tul_catalyst",
+      "nameZh": "托沃催化剂",
+      "nameEn": "Tul's Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "cold",
+      "targets": [
+        "ring",
+        "amulet"
+      ],
+      "effectZh": "为戒指或项链添加提升冰霜类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "ring",
+          "amulet"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "cold",
+        "usageNoteZh": "只能用于戒指或项链；添加强化“cold”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "refined_tul_catalyst",
+      "nameZh": "精炼托沃催化剂",
+      "nameEn": "Refined Tul's Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "cold",
+      "targets": [
+        "jewel"
+      ],
+      "effectZh": "为珠宝添加提升冰霜类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "jewel"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "cold",
+        "usageNoteZh": "只能用于珠宝；添加强化“cold”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "esh_catalyst",
+      "nameZh": "艾许催化剂",
+      "nameEn": "Esh's Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "lightning",
+      "targets": [
+        "ring",
+        "amulet"
+      ],
+      "effectZh": "为戒指或项链添加提升闪电类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "ring",
+          "amulet"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "lightning",
+        "usageNoteZh": "只能用于戒指或项链；添加强化“lightning”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "refined_esh_catalyst",
+      "nameZh": "精炼艾许催化剂",
+      "nameEn": "Refined Esh's Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "lightning",
+      "targets": [
+        "jewel"
+      ],
+      "effectZh": "为珠宝添加提升闪电类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "jewel"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "lightning",
+        "usageNoteZh": "只能用于珠宝；添加强化“lightning”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "chayula_catalyst",
+      "nameZh": "夏乌拉催化剂",
+      "nameEn": "Chayula's Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "chaos",
+      "targets": [
+        "ring",
+        "amulet"
+      ],
+      "effectZh": "为戒指或项链添加提升混沌类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "ring",
+          "amulet"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "chaos",
+        "usageNoteZh": "只能用于戒指或项链；添加强化“chaos”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "refined_chayula_catalyst",
+      "nameZh": "精炼夏乌拉催化剂",
+      "nameEn": "Refined Chayula's Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "chaos",
+      "targets": [
+        "jewel"
+      ],
+      "effectZh": "为珠宝添加提升混沌类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "jewel"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "chaos",
+        "usageNoteZh": "只能用于珠宝；添加强化“chaos”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "reaver_catalyst",
+      "nameZh": "袭击催化剂",
+      "nameEn": "Reaver Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "attack",
+      "targets": [
+        "ring",
+        "amulet"
+      ],
+      "effectZh": "为戒指或项链添加提升攻击类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "ring",
+          "amulet"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "attack",
+        "usageNoteZh": "只能用于戒指或项链；添加强化“attack”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "refined_reaver_catalyst",
+      "nameZh": "精炼袭击催化剂",
+      "nameEn": "Refined Reaver Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "attack",
+      "targets": [
+        "jewel"
+      ],
+      "effectZh": "为珠宝添加提升攻击类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "jewel"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "attack",
+        "usageNoteZh": "只能用于珠宝；添加强化“attack”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "sibilant_catalyst",
+      "nameZh": "嘶语催化剂",
+      "nameEn": "Sibilant Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "caster",
+      "targets": [
+        "ring",
+        "amulet"
+      ],
+      "effectZh": "为戒指或项链添加提升施法类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "ring",
+          "amulet"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "caster",
+        "usageNoteZh": "只能用于戒指或项链；添加强化“caster”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "refined_sibilant_catalyst",
+      "nameZh": "精炼嘶语催化剂",
+      "nameEn": "Refined Sibilant Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "caster",
+      "targets": [
+        "jewel"
+      ],
+      "effectZh": "为珠宝添加提升施法类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "jewel"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "caster",
+        "usageNoteZh": "只能用于珠宝；添加强化“caster”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "skittering_catalyst",
+      "nameZh": "飞掠催化剂",
+      "nameEn": "Skittering Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "speed",
+      "targets": [
+        "ring",
+        "amulet"
+      ],
+      "effectZh": "为戒指或项链添加提升速度类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "ring",
+          "amulet"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "speed",
+        "usageNoteZh": "只能用于戒指或项链；添加强化“speed”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "refined_skittering_catalyst",
+      "nameZh": "精炼飞掠催化剂",
+      "nameEn": "Refined Skittering Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "speed",
+      "targets": [
+        "jewel"
+      ],
+      "effectZh": "为珠宝添加提升速度类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "jewel"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "speed",
+        "usageNoteZh": "只能用于珠宝；添加强化“speed”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "adaptive_catalyst",
+      "nameZh": "应变催化剂",
+      "nameEn": "Adaptive Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "attribute",
+      "targets": [
+        "ring",
+        "amulet"
+      ],
+      "effectZh": "为戒指或项链添加提升属性类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "ring",
+          "amulet"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "attribute",
+        "usageNoteZh": "只能用于戒指或项链；添加强化“attribute”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "refined_adaptive_catalyst",
+      "nameZh": "精炼应变催化剂",
+      "nameEn": "Refined Adaptive Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "attribute",
+      "targets": [
+        "jewel"
+      ],
+      "effectZh": "为珠宝添加提升属性类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "jewel"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "attribute",
+        "usageNoteZh": "只能用于珠宝；添加强化“attribute”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "necrotic_catalyst",
+      "nameZh": "死灵催化剂（暂译）",
+      "nameEn": "Necrotic Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "minion",
+      "targets": [
+        "ring",
+        "amulet"
+      ],
+      "effectZh": "为戒指或项链添加提升召唤生物类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "localizationStatus": "english-index-only-cn-temporary-translation",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "ring",
+          "amulet"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "minion",
+        "usageNoteZh": "只能用于戒指或项链；添加强化“minion”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    },
+    {
+      "id": "refined_necrotic_catalyst",
+      "nameZh": "精炼死灵催化剂（暂译）",
+      "nameEn": "Refined Necrotic Catalyst",
+      "kind": "catalyst",
+      "modifierTag": "minion",
+      "targets": [
+        "jewel"
+      ],
+      "effectZh": "为珠宝添加提升召唤生物类词缀效果的品质，并替换其他品质类型。",
+      "stackSize": 10,
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "implementationStatus": "catalogued",
+      "sourceUrlZh": "https://poe2db.tw/cn/Stackable_Currency",
+      "localizationStatus": "english-index-only-cn-temporary-translation",
+      "usage": {
+        "requiresUncorrupted": true,
+        "requiresUnmirrored": true,
+        "simulatorSupport": "catalog-only",
+        "targetTypes": [
+          "jewel"
+        ],
+        "qualityAction": "replace_catalyst_quality",
+        "modifierTag": "minion",
+        "usageNoteZh": "只能用于珠宝；添加强化“minion”类词缀的催化品质，并替换已有的其他催化品质。"
+      }
+    }
+  ]
+}

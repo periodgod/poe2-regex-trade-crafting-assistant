@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' app:; script-src 'self' app:; style-src 'self' app: 'unsafe-inline'; img-src 'self' app: data:; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>POE 多区服正则与交易助手</title>
+  <link rel="stylesheet" href="app://local/styles.css">
+  <style>
+    .home{width:min(1180px,100%);margin:0 auto}.home-panel{background:rgba(14,23,36,.96);border:1px solid #26384e;border-radius:22px;padding:34px;box-shadow:0 28px 80px rgba(0,0,0,.45)}
+    .home-header{text-align:left;border-bottom:1px solid #27415f;padding-bottom:26px}.home-header h1{font-size:42px;margin:9px 0}.home-header p{color:var(--muted);line-height:1.7;max-width:850px}
+    .module-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:28px}.module-card{border:1px solid #2c425d;border-radius:16px;padding:22px;background:#0b1625;display:flex;flex-direction:column;min-height:250px}.module-card h2{margin:9px 0}.module-card p{color:var(--muted);line-height:1.7;flex:1}.module-card button{width:100%;padding:13px;border:0;border-radius:9px;background:#e5004f;color:#fff;font-weight:800;cursor:pointer}.module-card.secondary button{background:#24638e}.module-card.market button{background:#7c3aed}.module-card.craft button{background:#1e8d67}
+    .footer-note{margin-top:24px;color:#8395a9;font-size:12px;line-height:1.7}
+    @media(max-width:900px){.module-grid{grid-template-columns:1fr}.home-panel{padding:22px}.home-header h1{font-size:34px}}
+  </style>
+  <link rel="stylesheet" href="app://local/light-theme.css">
+</head>
+<body class="home-page">
+<div class="app-shell">
+  <div class="ambient ambient-left"></div><div class="ambient ambient-right"></div>
+  <main class="home">
+    <section class="home-panel">
+      <header class="home-header"><div class="home-status"><span>本地运行</span><span>0.5.2 数据结构</span></div>
+        <div class="eyebrow">POE MULTI-REALM TOOLKIT · v1.9.0</div>
+        <h1>四区服正则、通货交易与做装</h1>
+        <p>覆盖流放2国服、流放2国际服、流放1国服、流放1国际服四个区服；围绕正则筛选、离线通货计算、集市监控与装备制作流程设计。POE2 做装模拟器只在精确底材词缀快照通过校验后运行。</p>
+      </header>
+
+      <section class="module-grid">
+        <article class="module-card">
+          <div class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5 3 12l5 7M16 5l5 7-5 7M14 3 10 21"/></svg></div>
+          <div class="eyebrow">REGEX</div><h2>完整正则生成器</h2>
+          <p>装备、地图/引路石、石板、仓库与高级正则；支持国服中文/国际服英文预设、石板句中数字识别与剪贴板流程。</p>
+          <button id="openRegexButton" type="button">打开正则生成器</button>
+        </article>
+        <article class="module-card secondary">
+          <div class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="8" cy="6" rx="5" ry="2.5"/><path d="M3 6v4c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V6M3 10v4c0 1.4 2.2 2.5 5 2.5 1.1 0 2.1-.2 3-.5"/><ellipse cx="16" cy="15" rx="5" ry="2.5"/><path d="M11 15v4c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-4"/></svg></div>
+          <div class="eyebrow">CURRENCY TRADE</div><h2>通货交易助手</h2>
+          <p>离线计算四区服通货换算、买卖价差、手续费与套利空间，不保存账号、Cookie 或官方登录会话。</p>
+          <button id="openArbitrageButton" type="button">打开通货交易助手</button>
+        </article>
+        <article class="module-card market">
+          <div class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7h18M6 7l1.5-3h9L18 7M6 7v12h12V7M9 11h6M9 15h4"/></svg></div>
+          <div class="eyebrow">MARKET WATCH</div><h2>集市实时监控</h2>
+          <p>粘贴四区服官方集市搜索链接，按价格区间、通货、在线状态筛选；命中后可提醒、复制私聊并打开集市页。</p>
+          <button id="openMarketButton" type="button">打开集市监控</button>
+        </article>
+        <article class="module-card craft">
+          <div class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m14.5 4.5 5 5M12 7l5 5M5 19l7-7M4 20l3-1 10-10-2-2L5 17l-1 3ZM13 5l2-2 6 6-2 2"/></svg></div>
+          <div class="eyebrow">CRAFTING</div><h2>严格做装模拟器</h2>
+          <p>POE2 按精确底材限制前后缀，校验物等、T级、词缀组和通货使用条件；POE1 暂保留为市场/正则/通货流程。</p>
+          <button id="openCraftingButton" type="button">打开做装模拟器</button>
+        </article>
+      </section>
+
+      <div class="footer-note">集市监控已扩展为四区服统一项目包；制作成本在做装模块中手动填写，完整词缀快照可通过数据更新按钮刷新。</div>
+    </section>
+  </main>
+</div>
+<script src="app://local/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+POE2 助手 v1.7.4：必须先“全部解压”
+
+不要直接在 ZIP 预览窗口里双击 CMD。
+Windows 那样只会把被双击的 CMD 临时复制到 AppData\Local\Temp，
+package.json、main.js、renderer、src 等文件不会一起复制，因此会显示“package.json missing”。
+
+正确步骤：
+1. 返回下载文件夹。
+2. 右键完整 ZIP。
+3. 选择“全部解压”。
+4. 进入解压后的 poe2-desktop-assistant-v1.7.4-complete-fixed 文件夹。
+5. 双击 START_HERE.cmd。
